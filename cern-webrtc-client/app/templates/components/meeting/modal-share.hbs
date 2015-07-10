@@ -1,0 +1,32 @@
+<div id="modal-share" class="ui modal modal-fixed-footer">
+    <div class="header">
+      {{t "meeting_box.share_modal.title" }}
+    </div>
+    <div class="content">
+      {{#if isUsingCompatibleBrowser}}
+          <p>{{t "meeting_box.share_modal.chrome_info" }}</p>
+
+          <p>{{t "meeting_box.share_modal.install_instructions" }}</p>
+          <h4>Chrome</h4>
+          <ol>
+              <li>
+                  <a href="https://chrome.google.com/webstore/detail/unnoficial-cern-vidyo-web/nlnngkdfbolcnognhapogafdlobbldop"
+                     title="Download the Vidyo WebRTC Chrome extension">{{t "meeting_box.share_modal.download_chrome_extension" }}</a>
+              </li>
+              <li>{{t "meeting_box.share_modal.chrome_extension_step4"}}</li>
+          </ol>
+          <h4>Firefox</h4>
+          <ol>
+              <li><a href="https://addons.mozilla.org/es/firefox/addon/unnoficial-cern-webrtc-sharing/"
+                     title="Download the Vidyo WebRTC Firefox extension">{{t "meeting_box.share_modal.download_firefox_extension" }}</a>
+              </li>
+              <li>{{t "meeting_box.share_modal.chrome_extension_step4"}}</li>
+          </ol>
+      {{else}}
+          <p>{{t "meeting_box.share_modal.only_chrome_supported" }}</p>
+      {{/if}}
+    </div>
+    <div class="actions">
+        <button class="ui cancel button">{{t "index.button.close" }}</button>
+    </div>
+</div>

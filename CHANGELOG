@@ -1,0 +1,75 @@
+# Change Log
+All notable changes to this project will be documented in this file.
+This project adheres to [CERN Vidyo WebRTC Client](https://vidyowebrtc.web.cern.ch/).
+
+## [unreleased]
+### Add
+- Volume control to microphone.
+- Close private chat button
+
+## 0.12.1 - 2016-09-20
+### Fixed
+- Microphone permissions on Firefox working again on the loadging screen.
+
+## 0.12 - 2016-09-20
+### Add
+- Add detach screen share feature
+
+## 0.11.2.2 - 2016-09-05
+### Fixed
+- Screen switch now works with latest Chrome version.
+
+## 0.11.2.1 - 2016-07-29
+### Improved
+- Updated libraries and Ember-cli to 2.7.0.
+### Fixed
+- Volume slider for speakers should work again.
+
+## 0.11.2 - 2016-07-26
+### Improved
+- Microphone stream is now stopped after first verification.
+
+## 0.11.1 - 2016-07-08
+### Added
+- Help page
+### Improved
+- Switching between preferred modes by clicking on the small streams and active speaker button.
+### Fixed
+- Plugin loadind modal was displayed on wrong position.
+
+## 0.11 - 2016-06-30
+### Add
+- Sharing on Firefox.
+- Better sharing experience on Chrome.
+
+## 0.10.2 - 2016-06-27
+### Add
+- Volume control to the speakers
+
+## 0.9.2 - 2016-06-16
+### Fixed
+- Support to click and switch streams on Firefox.
+
+## 0.9.1 - 2016-06-10
+### Fixed
+- App name on the title bar is now correct.
+- Chat container is now smaller.
+- Typo on pip button tooltip.
+### Removed
+- Ember-resize Node module
+
+## 0.9.0 - 2016-06-09
+### Added
+- This CHANGELOG.
+- Check at startup if client will work (webrtc capable, user has microphone, session manager and backend reachables...).
+- Add new UI using Semantic UI instead of Materialize.
+- Chat is now on the right.
+- Clicking on participant now opens a private chat with that participant.
+- PIP now will hide all the small streams.
+- Login now uses Oauth2 instead of different versions for guests and sso users.
+- New style for the loading screen.
+### Fixed
+- Clicking on the downloads page header using a mobile device won't take the user to the index.
+
+
+[0.9.0]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.3.0...HEAD

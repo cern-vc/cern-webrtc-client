@@ -1,0 +1,10 @@
+<div class=" {{if (is-bigger numberOfStreams index) '' 'hide'}} clickable-video bottom aligned">
+    <div id="participantDiv{{index}}"
+         class="{{if (is-bigger numberOfStreams index) '' 'hide'}}">
+        <video id="remoteVideo{{index}}" autoplay=""
+               class="remoteVideo{{index}}"></video>
+        <div class="ui bottom attached black label center">
+            <div id="participant{{index}}" class="participant-title"></div>
+        </div>
+    </div>
+</div>

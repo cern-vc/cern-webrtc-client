@@ -1,0 +1,99 @@
+<div id="modal-help" class="ui modal modal-fixed-footer">
+    <div class="header">
+      {{t "Help"}}
+    </div>
+    <div class="content">
+        <table class="responsive-table">
+            <thead>
+            <tr>
+                <th>{{t "meeting_box.help_modal.enabled_icon" }}</th>
+                <th>{{t "meeting_box.help_modal.disabled_icon" }}</th>
+                <th>{{t "meeting_box.help_modal.description" }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <i class="material-icons">videocam</i>
+                </td>
+                <td>
+                    <i class="material-icons red-text darken-3 ">videocam_off</i>
+                </td>
+                <td>
+                  {{t "meeting_box.help_modal.enable_webcam" }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="material-icons">mic</i>
+                </td>
+                <td>
+                    <i class="material-icons  red-text darken-3 ">mic_off</i>
+                </td>
+                <td>
+                  {{t "meeting_box.help_modal.enable_microphone" }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="material-icons">volume_up</i>
+                </td>
+                <td>
+                    <i class="material-icons  red-text darken-3 ">volume_off</i>
+                </td>
+                <td>
+                  {{t "meeting_box.help_modal.enable_speaker" }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="material-icons">picture_in_picture</i>
+                </td>
+                <td>
+                    -
+                </td>
+                <td>
+                  {{t "meeting_box.help_modal.toggle_view" }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="material-icons">view_compact</i>
+                </td>
+                <td>
+                    <i class="material-icons">view_comfy</i>
+                </td>
+                <td>
+                  {{t "meeting_box.help_modal.active_speaker" }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="material-icons">screen_share</i>
+                </td>
+                <td>
+                    -
+                </td>
+                <td>
+                  {{t "meeting_box.help_modal.share" }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="material-icons red-text darken-3">call_end</i>
+                </td>
+                <td>
+                    -
+                </td>
+                <td>
+                  {{t "meeting_box.help_modal.disconnect" }}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="actions">
+        <a href="#" {{action "closeHelpModal"}}
+           class="ui cancel button">{{t "index.button.close"}}</a>
+    </div>
+</div>

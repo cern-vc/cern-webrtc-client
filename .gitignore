@@ -1,0 +1,37 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/*
+.DS_Store
+npm-debug.log
+
+# Windows ember-cli generated folder
+node_modules
+
+# compiled output
+/cern-webrtc-client/dist
+/cern-webrtc-client/tmp
+
+# dependencies
+/cern-webrtc-client/node_modules
+/cern-webrtc-client/tests_old
+/cern-webrtc-client/bower_components
+
+# misc
+/cern-webrtc-client/.sass-cache
+/cern-webrtc-client/connect.lock
+/cern-webrtc-client/coverage/*
+/cern-webrtc-client/libpeerconnection.log
+#/cern-webrtc-client/npm-debug.log
+/cern-webrtc-client/testem.log
+
+.idea
+*.pem
+*.key
+*.crt
+*.csr
+*.key.secure
+
+tests_old/
+coverage.json
+.env*
+*/vendor/vidyo/*.js
+/cern-webrtc-client/vendor/vidyo/*.js

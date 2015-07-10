@@ -1,0 +1,74 @@
+<div class="ui modal modal-configuration">
+    <div class="header">Configuration</div>
+    <div class="content">
+        <p>{{t "configuration_box.select_devices_message"}}</p>
+        <div class="ui two column grid">
+            <div class="column">
+                <form class="ui form">
+                    <div class="field">
+                        <label for="configurationCamera">{{t "configuration_box.field.webcam"}}</label>
+
+                        <select id="configurationCamera"
+                                class="browser-default dropdown" {{action "changeVideoInput" on="change"}}>
+                          {{#each cameras as |camera|}}
+                            {{#if isSelected}}
+                                <option value={{camera.id}} selected>{{camera.name}}</option>
+                            {{else}}
+                                <option value={{camera.id}}>{{camera.name}}</option>
+                            {{/if}}
+                          {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="configurationMic">{{t "configuration_box.field.microphone"}}</label>
+
+                        <select id="configurationMic"
+                                class="browser-default dropdown" {{action "changeAudioInput" on="change"}}>
+
+                          {{#each microphones as |mic|}}
+                            {{#if isSelected}}
+                                <option value={{mic.id}} selected>{{mic.name}}</option>
+                            {{else}}
+                                <option value={{mic.id}}>{{mic.name}}</option>
+                            {{/if}}
+                          {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="desktopNotifications">{{t "configuration_box.field.desktop_notifications"}}</label>
+                        <p>
+                            <button  {{action "changeNotificationsSettings"}}
+                                    class="ui primary button indico-blue {{if (is-equal notificationsStatus "denied") 'disabled' '' }}">
+                              {{if (is-equal notificationsStatus "denied") 'Enable Notifications' 'Test Notification' }}
+                            </button>
+                        </p>
+
+                      {{#if (is-equal notificationsStatus "denied")}}
+                        {{t "configuration_box.notifications_disabled_message"}}
+                      {{/if}}
+                      {{#if (is-equal notificationsStatus "granted")}}
+                        {{t "configuration_box.notifications_enabled_message"}}
+                      {{/if}}
+                        (on <a target="_blank" href="https://support.google.com/chrome/answer/3220216"
+                               title="Notifications configuration in Chrome">Chrome</a>
+                        or <a target="_blank" href="https://support.mozilla.org/en-US/questions/997362"
+                              title="Notifications configuration in Firefox">Firefox</a>)
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="column">
+                <video id="player" style="max-width: 100%; height: auto;" ></video>
+            </div>
+        </div>
+
+    </div>
+    <div class="actions">
+        <div class="ui cancel button">{{t "index.button.close"}}</div>
+        <div class="ui positive button">{{t "configuration_box.button.save"}}</div>
+
+    </div>
+</div>

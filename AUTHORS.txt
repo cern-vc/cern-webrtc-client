@@ -1,0 +1,4 @@
+Authors ordered by first contribution.
+
+René Fernández Sánchez <hola@renefernandez.com>
+Przemysław Piotr Kwiatkowski <kwiatkowski.przemysl@gmail.com>

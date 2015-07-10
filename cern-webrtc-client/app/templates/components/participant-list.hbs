@@ -1,0 +1,21 @@
+<div id="participants-dropdown-list" class="ui black labeled icon top left pointing dropdown button">
+    <i class="user icon"></i>
+    <span>{{meeting.participants.length}} {{#if (is-bigger meeting.participants.length 1)}} {{t "participant_list.participants"}}{{else}}{{t "participant_list.participant"}}{{/if}}
+        <i class="dropdown icon"></i>
+    </span>
+    <div class="ui menu">
+      {{#each meeting.participants as |participant|}}
+        {{#unless (is-equal participant.id currentUserId)}}
+            <div class="item" {{action "openPrivateChat" participant}}>
+                <i class="user icon"></i>
+              {{participant.name}}
+            </div>
+        {{else}}
+            <div class="disabled item" {{action "doNothing"}}>
+                <i class="user icon"></i>
+              {{participant.name}}
+            </div>
+        {{/unless}}
+      {{/each}}
+    </div>
+</div>

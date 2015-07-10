@@ -1,0 +1,40 @@
+<div id="cern-toolbar">
+
+    <h1><a href="http://home.cern" title="CERN">CERN <span>Accelerating science</span></a></h1>
+
+    <ul>
+      {{#if session.isAuthenticated}}
+          <li>
+              <a {{action "doNothing"}}>{{t "cern_toolbar.logged_in_as"}} {{session.data.authenticated.user_info.username}}</a>
+          </li>
+          <li><a href="!#" {{action 'invalidateSession'}}>{{t "cern_toolbar.logout"}}</a></li>
+      {{else}}
+          <li>
+              <a href="!#" {{action "openLoginModal"}}>Login</a>
+          </li>
+      {{/if}}
+        <li><a class="cern-directory" href="http://cern.ch/directory"
+               title="Search CERN resources and browse the directory">{{t "cern_toolbar.directory"}}</a></li>
+    </ul>
+
+</div><!-- /#cern-toolbar -->
+
+
+<div class="ui modal login-modal">
+    <i class="close icon"></i>
+    <div class="content">
+      {{#unless loginIsLoading }}
+        {{torii-iframe-placeholder}}
+      {{else}}
+
+          <div class="ui active inverted dimmer">
+              <div class="ui text loader">Loading</div>
+          </div>
+          <p></p>
+      {{/unless}}
+    </div>
+    <div class="actions">
+        <div class="ui cancel button" {{action "closeLoginModal"}}>Cancel
+        </div>
+    </div>
+</div>

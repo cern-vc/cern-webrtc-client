@@ -1,0 +1,9 @@
+<div id="shareContainer" class="column {{if isShareWindowDilgOpen 'hide' ''}} {{if (is-bigger shareCount 0) '' 'hide'}} bottom aligned" {{action "detachShare"}}>
+    <div id="shareVideoDiv"
+         class="sharevideo-wrapper {{if (is-bigger shareCount 0) '' 'hide'}}">
+        <video id="shareVideo0" autoplay="" class="remotevideo-default shareVideo0"></video>
+        <div class="ui bottom attached black label center">
+            <div id="shareName" class="participant-title"></div>
+        </div>
+    </div>
+</div>

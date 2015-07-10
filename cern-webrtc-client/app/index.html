@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CERN WebRTC Client</title>
+  <meta name="description"
+        content="CERN WebRTC Vidyo Client is a videoconference client that allows users to communicate among themselves using their web browsers">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {{content-for 'head'}}
+
+  <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+  <link rel="stylesheet" href="{{rootURL}}assets/cern-webrtc-client.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://framework.web.cern.ch/framework/2.0/fonts/PTSansWeb/PTSansWeb.css' rel='stylesheet'
+        type='text/css'>
+  <link rel="shortcut icon" href="{{rootURL}}favicon.ico"/>
+
+  {{content-for 'head-footer'}}
+</head>
+<body>
+{{content-for 'body'}}
+<script src="{{rootURL}}assets/vendor.js"></script>
+<script src="{{rootURL}}assets/cern-webrtc-client.js"></script>
+
+{{content-for 'body-footer'}}
+</body>
+</html>

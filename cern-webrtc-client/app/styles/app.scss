@@ -1,0 +1,743 @@
+
+body {
+  background: #f2f2f2;
+}
+
+button {
+  font-size: 0.8rem;
+}
+
+.top-nav {
+  background: #007CAC !important;
+}
+
+.top-nav a.page-title {
+  line-height: 122px;
+  font-size: 48px;
+  color: white;
+}
+
+.top-nav a.page-title {
+  text-transform: none;
+}
+
+.login-logo {
+  font-family: 'PT Sans', sans-serif;
+  text-align: center;
+  font-size: 30px;
+  color: #000000;
+}
+
+.login-logo a.page-title {
+  color: #000;
+}
+
+.login-logo a.page-title {
+  text-transform: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .top-nav a.page-title {
+    line-height: 1.5em;
+    font-size: 1.5em;
+    color: white;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    height: 127px;
+    line-height: 117px;
+  }
+}
+
+.page-title {
+  font-family: 'PT Sans', sans-serif;
+}
+
+.center {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.vertical-middle {
+  vertical-align: middle
+}
+
+.chat-box {
+  width: 320px;
+  position: absolute !important;
+  bottom: 0;
+  right: 0;
+}
+
+.ui.comments {
+  max-width: 100% !important;
+}
+
+.rotate-135 {
+  -ms-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+#messages-list-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#messages-list-scrollable {
+  position: relative;
+  overflow-y: scroll;
+  height: 160px;
+  background-color: #f9f9f9;
+}
+
+#messages-list-scrollable .comment {
+  background-color: #fff;
+}
+
+.login-modal .torii-iframe-placeholder {
+  height: 95%;
+  width: 100%;
+}
+
+.torii-iframe-placeholder iframe {
+  min-height: 580px;
+  height: 100%;
+  width: 100%;
+  border: 0;
+}
+
+#login-modal .torii-iframe-placeholder {
+  min-height: 580px;
+}
+
+.main {
+  margin-top: 20px;
+}
+
+/* LOGIN STYLES */
+
+body > .ember-view {
+  height: 100%;
+}
+
+.login-main {
+  height: 100%;
+}
+
+body .ember-view .login-main .ui.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin: 0 auto;
+  width: 580px;
+}
+
+.dashboard.brand.icon {
+  width: 100%;
+  margin-bottom: 36px;
+}
+
+[data-page="login"] .ui.container .ui.segment {
+  padding: 35px;
+}
+
+p.signup {
+  padding-top: 25px;
+}
+
+p.dashboard {
+  font-size: 12px;
+  padding-top: 10px;
+  text-transform: uppercase;
+}
+
+p.signup, p.dashboard {
+  color: #999999;
+  text-align: center;
+}
+
+.floated.right {
+  float: right;
+}
+
+body {
+  background: #f2f2f2;
+}
+
+button {
+  font-size: 0.8rem;
+}
+
+.top-nav {
+  background: #007CAC;
+}
+
+video {
+  max-width: 100%;
+  //width: 100%;
+}
+
+#mainVideoContainer video {
+  visibility: visible;
+  width: 100%;
+  max-height: 100%;
+  background-color: black;
+}
+
+.header h1 {
+  color: #fff;
+  font-weight: bold;
+  font-size: 29px;
+}
+
+.side-nav-message {
+  bottom: 0;
+  width: 294px;
+  right: 0;
+  height: 111px;
+  z-index: 1000;
+}
+
+#logo-container {
+  height: 57px;
+  margin-bottom: 32px;
+}
+
+.segment.chat {
+  height: 400px;
+}
+
+.chat-message {
+  margin-bottom: 15px;
+  white-space: pre-wrap;
+  padding: 5px 10px !important;
+  line-height: 1em !important;
+}
+
+main, footer {
+  padding-left: 240px;
+  //padding-right: 240px;
+}
+
+@media only screen and (max-width: 992px) {
+  header, main, footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  nav a.button-collapse-right, nav a.button-collapse-right i {
+    height: 64px;
+    line-height: 64px;
+  }
+
+  nav a.button-collapse-right, nav a.button-collapse-right i {
+    height: 64px;
+    line-height: 64px;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  nav a.button-collapse-right {
+    display: none;
+  }
+
+}
+
+#selfViewDiv {
+  padding: 0;
+  position: relative;
+}
+
+.transparent-strip {
+  position: relative;
+  text-align: center;
+  bottom: 0;
+  opacity: 0.6;
+}
+
+.participant-wrapper video {
+  max-height: 100%;
+}
+
+#pluginAndChatContainer .row {
+  margin: 0;
+}
+
+#pluginAndChatContainer .col {
+  margin: 0;
+}
+
+.nav-container {
+  height: 90%;
+}
+
+.indico-blue {
+  background-color: #007CAC;
+}
+
+.indico-blue:focus {
+  background-color: #007CAC;
+}
+
+.indico-blue-text {
+  color: #007CAC !important;
+}
+
+.sendMessageButton {
+  margin-bottom: 10px;
+}
+
+#messages-list-wrapper {
+  padding-left: 10px;
+}
+
+#participants-list-inner, #messages-list-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#participants-list-scrollable {
+  position: absolute;
+  overflow: scroll;
+  overflow-x: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#messages-list-scrollable {
+  position: relative;
+  overflow-y: scroll;
+  height: 255px;
+}
+
+#messages-list-scrollable .comment {
+  background-color: #fff;
+}
+
+#message-textarea-wrapper {
+  height: 190px;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.no-padding-bottom {
+  padding-bottom: 0;
+}
+
+li.collection-item a.secondary-content {
+  padding: 0;
+  margin: 0;
+  line-height: inherit;
+  height: auto;
+}
+
+#participants-list-inner .material-icons {
+  vertical-align: middle;
+}
+
+.participant-list-element {
+  padding-left: 40px !important;
+}
+
+.participant-list-icon {
+  position: absolute;
+  left: 5px;
+}
+
+span.participant-name {
+  font-size: 12px;
+}
+
+#messages-list-inner {
+  font-size: 12px;
+}
+
+.truncate-inline {
+  display: inline;
+}
+
+#cernLogoConferenceView {
+  height: 100px;
+  width: 100%;
+  padding: 10px;
+}
+
+#messages-list-scrollable, ul#participants-list-scrollable {
+  margin-top: 0;
+}
+
+.cim_tab {
+  padding-top: 20px;
+}
+
+.index-main {
+  margin-top: 20px;
+}
+
+.index-main li.tab a {
+  @extend .indico-blue-text;
+}
+
+.index-main li.tab .material-icons {
+  vertical-align: middle;
+}
+
+.tabs .indicator {
+  @extend .indico-blue;
+}
+
+.progress .determinate {
+  @extend .indico-blue;
+}
+
+span.badge {
+  @extend .indico-blue;
+}
+
+.progress {
+  background-color: #E4E4E4;
+}
+
+.btn:hover, .btn-large:hover {
+  background-color: #ADADAD !important
+}
+
+input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]),
+input[type=url]:focus:not([readonly]),
+input[type=time]:focus:not([readonly]),
+input[type=date]:focus:not([readonly]),
+input[type=datetime-local]:focus:not([readonly]),
+input[type=tel]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]),
+input[type=search]:focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-color: #007CAC;
+  box-shadow: 0 1px 0 0 #007CAC;
+}
+
+.participant-wrapper {
+  text-align: center;
+}
+
+#participants-list-actions {
+  height: 50px;
+}
+
+#participants-list-actions p {
+  margin: 0;
+}
+
+#participants-list-actions a {
+  display: inline;
+  padding: 0 5px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+#row-otherParticipants {
+  padding-top: 10px;
+}
+
+.bottom-video-layer {
+  z-index: 1;
+  position: relative;
+  top: -70px;
+}
+
+.top-video-layer {
+  z-index: 2;
+  position: relative;
+}
+
+.transitioning {
+  transition: opacity 0.5s linear;
+}
+
+.transitioning-invisible {
+  opacity: 0;
+}
+
+.toolbox-centered {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 5px;
+}
+
+.toolbox-centered a.disabled {
+  opacity: 0.6;
+  background-color: #585757 !important;
+}
+
+.toolbox-centered a.disabled:hover {
+  opacity: 0.6;
+  background-color: #585757 !important;
+}
+
+/* Video meeting full */
+video.bgvid {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+  background-color: black;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  /* Set the fixed height of the footer here */
+  z-index: 1000;
+  height: 300px;
+  border-top: 13px solid #505050;
+  background: #f4f4f4;
+}
+
+.meeting-self-view {
+  width: 16%;
+  position: relative;
+  display: inline-block;
+}
+
+
+#participantDiv1 {
+  position: relative;
+}
+
+
+#participantDiv2 {
+  position: relative;
+}
+
+#participantDiv3 {
+  position: relative;
+}
+
+#smallStreams {
+  position: absolute;
+  left: 20px;
+  width: 75%;
+  bottom: 20px;
+}
+
+#smallStreams>div>div{
+  position: relative;
+}
+
+.mainLabel {
+  float: right;
+  margin-right: 50px !important;
+  margin-top: 20px !important;
+}
+
+#shareVideoDiv {
+  position: relative;
+  height: 100%;
+  margin-left: 2%;
+  display: inline;
+}
+
+.top-video-strip {
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.dynamic-video-top-strip {
+  position: absolute;
+  top: 0;
+  text-align: right;
+  width: 100%;
+  z-index: 999;
+  cursor: pointer;
+}
+
+#participants-dropdown-list, #participants-dropdown-list li a {
+  font-size: 0.8rem;
+}
+
+#available-shares {
+  text-align: center;
+  vertical-align: center;
+  line-height: 2em;
+  min-height: 0;
+}
+
+.share-options-list li a {
+  font-size: 15px;
+  z-index: 999;
+  line-height: 1em;
+
+}
+
+#shares-list {
+  padding: 5px;
+}
+
+.vertically-aligned {
+  vertical-align: text-top;
+}
+
+#mainActionButton .fixed-action-btn {
+  position: relative;
+}
+
+#expandFooterButton {
+  margin-bottom: 0;
+  text-align: center;
+  margin-top: -13px;
+  z-index: 1000;
+}
+
+#participants-dropdown li .material-icons {
+  font-size: 1.3rem;
+}
+
+#participants-dropdown li a {
+  padding: 1rem 2rem;
+}
+
+#participants-dropdown-list {
+  position: absolute;
+  top: 10px;
+  left: 24px;
+  z-index: 2;
+}
+
+.card-action {
+  text-align: right;
+}
+
+.vertical-middle {
+  vertical-align: middle
+}
+
+.clickable-video, #shareContainer {
+  cursor: pointer;
+  width:16%;
+  display: inline-block;
+  margin-left: 0.4em;
+}
+
+#smallStreams video{
+  height: 100%;
+  width: 100%;
+}
+
+.ember-view{
+  display: inline;
+}
+
+
+#title a {
+  @extend .indico-blue-text;
+}
+
+nav.top-nav a.page-title {
+  line-height: 122px;
+  font-size: 48px;
+}
+
+@media only screen and (min-width: 601px) {
+  nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    height: 127px;
+    line-height: 117px;
+  }
+}
+
+.page-title {
+  font-family: 'PT Sans', sans-serif;
+}
+
+.center {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.login-modal .torii-iframe-placeholder {
+  height: 95%;
+  width: 100%;
+}
+
+.torii-iframe-placeholder iframe {
+  min-height: 580px;
+  height: 100%;
+  width: 100%;
+  border: 0;
+}
+
+#login-modal .torii-iframe-placeholder {
+  min-height: 580px;
+}
+
+.hide {
+  display: none !important;
+}
+
+#hideSidebarButton {
+  position: absolute;
+  right: 20px;
+  bottom: 420px;
+}
+
+.nag-container {
+  position: absolute;
+  width: 400px;
+  top: 60px;
+  right: 20px;
+  color: #fff;
+}
+
+.status-changed.nag {
+  color: #fff;
+  background: #000;
+}
+
+.ui.main.container {
+  margin-left: 3em !important;
+  margin-right: 21em !important;
+  width: auto !important;
+  max-width: 100% !important;
+}
+
+#login-form-container{
+  text-align: left;
+}
+

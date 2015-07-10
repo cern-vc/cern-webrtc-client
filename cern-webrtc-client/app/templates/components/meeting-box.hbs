@@ -1,0 +1,117 @@
+<div id="conference-things" class="{{if isConnected '' 'ui hide'}}">
+
+    <div id="toolbox-wrapper"
+         class="top-video-layer transitioning {{if isToolboxVisible '' 'transitioning-invisible'}}">
+
+      {{participant-list meeting=meeting}}
+
+        <div class="center toolbox-centered">
+
+            <button id="mute-video-button"
+                    class="big circular ui icon button mute-video-button {{if isMutedVideo 'red' 'black'}} tooltipped"
+                    data-content="{{if isMutedVideo (t "meeting_box.unmute_video") (t "meeting_box.mute_video")}}"
+                    data-variation="inverted" {{action "muteLocalVideo"}}>
+
+                <i class="material-icons">
+                  {{if isMutedVideo 'videocam_off' 'videocam' }}
+                </i>
+            </button>
+
+            <button id="mute-mic-button"
+                    class="big circular ui icon button mute-mic-button {{if isMutedMic 'red' 'black'}} tooltipped"
+                    data-content="{{if isMutedMic (t "meeting_box.unmute_mic") (t "meeting_box.mute_mic")}}"
+                    data-variation="inverted" {{action "muteLocalMic"}}>
+                <i class="material-icons">
+                  {{if isMutedMic 'mic_off' 'mic' }}
+                </i>
+            </button>
+
+            <button id="mute-speaker-button"
+                    class="big circular ui icon button mute-speaker-button {{if isMutedSpeaker 'red' 'black'}} volume-popup"
+
+              {{action "muteSpeaker"}}>
+                <i class="material-icons">
+                  {{if isMutedSpeaker 'volume_off' 'volume_up' }}
+                </i>
+            </button>
+            <div class="ui popup bottom left transition hide">
+                <div class="ui one column left aligned grid">
+                    <div class="column">
+                        <h4 class="header">
+                            Speakers: {{if isMutedSpeaker (t "meeting_box.speaker_muted") (t "meeting_box.speaker_no_muted")}}</h4>
+                        <p>
+                            <input type="hidden" name="speaker-value" id="speaker-value" value="{{speakerVolume}}"/>
+                        <div class="ui range" id="speaker-range"></div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <button id="disconnect-button"
+                    class="big circular ui icon button disconnect-button red tooltipped"
+                    data-content="{{t "meeting_box.quit_meeting"}}"
+                    data-variation="inverted" {{action 'disconnect'}}>
+                <i class="material-icons white-text">call_end</i>
+            </button>
+
+            <button
+                    class="big circular ui icon button toggle-view-button black tooltipped"
+                    data-content="{{t "meeting_box.change_pip_mode"}}"
+                    data-variation="inverted" {{action "clientPreviewModeToggle"}}>
+                <i class="material-icons white-text">picture_in_picture</i>
+            </button>
+
+            <button
+                    class="big circular ui icon button toggle-view-button black tooltipped"
+                    data-content="{{if (is-bigger numPreferredParticipants 0) (t "meeting_box.disable_active_speaker") (t "meeting_box.enable_active_speaker")}}"
+                    data-variation="inverted" {{action 'togglePreferedView'}}>
+                <i class="material-icons white-text">
+                  {{if numPreferredParticipants 'view_compact' 'view_comfy' }}
+                </i>
+            </button>
+
+            <div class="big circular ui icon top left pointing dropdown button black">
+                <i class="material-icons">settings</i>
+                <div class="menu">
+                    <div class="disabled item">{{t "meeting_box.connected_to"}} {{sessionInfo.sessionDisplayText}}</div>
+                    <div class="item" {{action "openHelpModal"}}>{{t "meeting_box.help"}}</div>
+                    <a class="item" href={{feedbackUrl}} target="_blank">{{t "meeting_box.send_us_feedback"}}</a>
+                </div>
+            </div>
+
+          {{"meeting/button-share"}}
+
+        </div>
+    </div>
+
+    <div class="nag-container">
+        <div class="ui inline status-changed nag">
+      <span class="title">
+      </span>
+        </div>
+    </div>
+
+    <div id="mainVideoContainer">
+        <div id="participantDiv0" class="participant-wrapper">
+            <video id="remoteVideo0" autoplay="" class="remotevideo-default remoteVideo0 bgvid" src=""></video>
+            <div class="{{if (is-bigger numberOfStreams 0) '' 'hide'}} ui small black label mainLabel">
+                <div id="participant0" class="participant-title"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui computer only" id="smallStreams">
+      {{"meeting/self-stream" }}
+
+      {{"meeting/participant-stream" index=1}}
+      {{"meeting/participant-stream" index=2}}
+      {{"meeting/participant-stream" index=3}}
+
+      {{"meeting/share-stream"}}
+    </div>
+
+  {{chat-box meeting=meeting}}
+
+</div>
+
+{{"meeting/modal-help"}}

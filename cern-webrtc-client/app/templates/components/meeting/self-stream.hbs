@@ -1,0 +1,14 @@
+{{#if isSelfViewVisible}}
+    <div class="meeting-self-view z-depth-3" id="meeting-self-view">
+        <div class="top-video-strip">
+          {{#if isMutedMic}}
+              <i class="material-icons">mic_off</i>
+          {{/if}}
+
+          {{#if isMutedVideo}}
+              <i class="material-icons">videocam_off</i>
+          {{/if}}
+        </div>
+        <video id="localVideo" autoplay="" muted class="localvideo-default responsive-video"></video>
+    </div>
+{{/if}}

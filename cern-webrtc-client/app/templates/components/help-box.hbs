@@ -1,0 +1,283 @@
+<div class="ui left vertical visible sidebar menu">
+  {{#link-to "index" class="item"}}
+      <i class="home icon"></i>
+      CERN Vidyo WebRTC Client
+  {{/link-to}}
+    <a class="item" {{action "goToLink" "#system-requirements"}}>
+        <i class="plug icon"></i>
+        System requirements
+    </a>
+    <a class="item" {{action "goToLink" "#sharing-screen"}}> <i class="desktop icon"></i> Sharing your screen</a>
+    <a class="item" {{action "goToLink" "#login"}}> <i class="sign in icon"></i> Login with your account</a>
+    <div class="item">
+        <i class="dashboard icon"></i>
+        <div class="header" {{action "goToLink" "#joining-meeting"}}>Joining a meeting</div>
+        <div class="menu">
+            <a class="item" {{action "goToLink" "#checking-system-configuration"}}>Checking system configuration</a>
+            <a class="item" {{action "goToLink" "#meeting-information"}}>Entering the meeting information</a>
+        </div>
+    </div>
+    <a class="item" {{action "goToLink" "#configuring-meeting"}}>
+        <i class="settings icon"></i>
+        Configuring a meeting
+    </a>
+    <div class="item">
+        <i class="users icon"></i>
+        <div class="header">On a meeting</div>
+        <div class="menu">
+            <a class="item" {{action "goToLink" "#participants-list"}}>1. Participants list</a>
+            <a class="item" {{action "goToLink" "#main-toolbar"}}>2. Main toolbar</a>
+            <a class="item" {{action "goToLink" "#self-video"}}>3. Self video</a>
+            <a class="item" {{action "goToLink" "#participants-videos"}}>4. Participants videos</a>
+            <a class="item" {{action "goToLink" "#chat-box"}}>5. Chat box</a>
+        </div>
+    </div>
+</div>
+<div class="pusher">
+    <div class="ui main container">
+        <h2 class="ui header">Help</h2>
+        <h3 class="ui header" id="system-requirements">System requirements</h3>
+        <ul>
+            <li><strong>Browser</strong>: Chrome (>50), Firefox(>45) or Opera(>35).</li>
+            <li><strong>Audio/Video devices</strong>: At least a microphone is needed to use the application, but webcam
+                is not
+                mandatory.
+            </li>
+        </ul>
+        <h3 class="ui header" id="sharing-screen">Sharing your screen</h3>
+        <p>If you want to share your screen with other users you must use Chrome or Firefox and install the
+            corresponding extension below:</p>
+
+        <h4>Chrome</h4>
+        <ol>
+            <li>
+                <a href="https://chrome.google.com/webstore/detail/unnoficial-cern-vidyo-web/nlnngkdfbolcnognhapogafdlobbldop"
+                   title="Download the Vidyo WebRTC Chrome extension">{{t "meeting_box.share_modal.download_chrome_extension" }}</a>
+            </li>
+        </ol>
+
+        <h4>Firefox</h4>
+        <ol>
+            <li><a href="https://addons.mozilla.org/es/firefox/addon/unnoficial-cern-webrtc-sharing/"
+                   title="Download the Vidyo WebRTC Firefox extension">{{t "meeting_box.share_modal.download_firefox_extension" }}</a>
+            </li>
+        </ol>
+
+        <p>Once installed, you should reload the page so the application will detect the extension.</p>
+        <p><img src="images/help/6-sharing-1.png" class="ui centered image"/></p>
+        <p>To share, you must click the "Share screen" button and then a window with all the available shares will
+            appear if you are using Chrome or a dropdown on the upper left corner of the screen if using Firefox.</p>
+        <h4 class="ui header">Chrome</h4>
+        <p><img src="images/help/6-sharing-chrome.png" class="ui centered image"/></p>
+        <h4 class="ui header">Firefox</h4>
+        <p><img src="images/help/6-sharing-firefox.png" class="ui centered image"/></p>
+
+        <p>Once one is selected and "Share" button is clicked, the new share will appear on the participants video zone
+            (lower side of the screen).</p>
+
+        <p><img src="images/help/6-sharing-2.png" class="ui centered image"/></p>
+
+        <p>If you want to switch between all the available shares, you can do it by selecting the one you want on the
+            sharing dropdown:</p>
+
+        <p><img src="images/help/6-sharing-3.png" class="ui centered image"/></p>
+
+        <h3 class="ui header" id="login">Login with your account</h3>
+        <p>To login with your account using the CERN Oauth2 Authentication, click the "Login" button on the CERN
+            Toolbar.</p>
+        <p>Then follow the steps in the window that will open.</p>
+        <p>Login with your account will fill automatically the Guest name/Your name field with your CERN display
+            name.</p>
+
+
+        <h3 class="ui header" id="joining-meeting">Joining a meeting</h3>
+        <h4 class="ui header" id="checking-system-configuration">Checking system configuration</h4>
+        <p>
+            <img src="images/help/1-checking-system.png" class="ui image"/>
+        </p>
+        <p>The first time you will access the application, It will ask you for permissions to access your microphone and
+            it will check if the application environment is working.
+        </p>
+        <p><img src="images/help/1-2-checking-system-error.png" class="ui centered image"/>
+        </p>
+        <p>
+            If for some reason an error occurs, you can click one of the buttons bellow to try a different application.
+            The options are the following:
+        </p>
+        <ol>
+            <li><strong>Go to Vidyo Portal</strong>: If you click this button you will be redirected to CERN Vidyo
+                Portal.
+            </li>
+            <li><strong>Use another Vidyo Client</strong>: You will be redirected to the downloads page.</li>
+        </ol>
+        <h4 class="ui header" id="meeting-information">Entering the meeting information</h4>
+        <p><img src="images/help/2-login-form.png" class="ui centered image"/></p>
+        <p>If the system check is ok, then the login screen will appear. On this screen there are 3 fields:</p>
+        <ol>
+            <li><strong>Room URL:</strong> You have to fill it with the Vidyo Portal URL for the room. It has the
+                following format:
+                <ul>
+                    <li>https://vidyoportal.cern.ch/flex.html?roomdirect.html=&key=hsjT7YiPtmp7</li>
+                    <li>The <strong>"Set Test Room"</strong> buttom will prefill the field with the Vidyo Cafe room URL.
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Room Pin: </strong> If the room is PIN protected you can enter the password here.</li>
+            <li><strong>Guest name/Your name: </strong> Enter the name you want to display in the meeting.</li>
+        </ol>
+        <p>Once everything is set up, you can either click "Join the meeting button" or the Settings button <img
+                src="images/help/2-settings-button.png" class="ui mini spaced image"/> to configure
+            your devices.</p>
+        <h3 class="ui header" id="configuring-meeting">Configuring a meeting</h3>
+        <p><img src="images/help/3-configuration.png" class="ui centered image"/></p>
+        <p>On the configuration screen you can configure the following things:</p>
+        <ul>
+            <li><strong>Webcam</strong>: The webcam that will be used by the application.</li>
+            <li><strong>Microphone</strong>: The webcam that will be used by the application.</li>
+            <li><strong>Notifications</strong>: Enable or test the browser notifications for the application. To disable
+                them, you have to go to your browser settings.
+            </li>
+        </ul>
+        <div class="ui warning message">
+            <div class="header">
+                Firefox users
+            </div>
+            If you are using Firefox, the only available option will be "Default". You will be able to change the device
+            settings on the meeting loading screen.
+        </div>
+        <h4 class="ui header">Loading the meeting</h4>
+        <p><img src="images/help/4-loading-firefox.png" class="ui centered image"/></p>
+        <p>If you are using Firefox, in this step you will need to give the application permissions to access your
+            microphone and webcam.
+        </p>
+        <h3 class="ui header">On a meeting</h3>
+        <p><img src="images/help/5-meeting.png" class="ui centered image"/></p>
+        <p>Once you are on a meeting you will see 5 different zones on the screen.</p>
+        <h4 class="ui header" id="participants-list">1. Participants list</h4>
+        <p>The participants list will display all the participants in the meeting if you hover it.</p>
+        <p>Clicking in one of the participants, a private chat with that participant will be openend.</p>
+
+        <h4 class="ui header" id="main-toolbar">2. Main toolbar</h4>
+        <p>The main toolbar will allow you to perform actions related with the meeting's behaviour.</p>
+
+        <table class="ui celled table">
+            <thead>
+            <tr>
+                <th>{{t "meeting_box.help_modal.enabled_icon" }}</th>
+                <th>{{t "meeting_box.help_modal.disabled_icon" }}</th>
+                <th>{{t "meeting_box.help_modal.description" }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <i class="material-icons">videocam</i>
+                </td>
+                <td>
+                    <i class="material-icons red-text darken-3 ">videocam_off</i>
+                </td>
+                <td>
+                    Enables or disables the webcam.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="material-icons">mic</i>
+                </td>
+                <td>
+                    <i class="material-icons  red-text darken-3 ">mic_off</i>
+                </td>
+                <td>
+                    Enables or disables the microphone.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="material-icons">volume_up</i>
+                </td>
+                <td>
+                    <i class="material-icons  red-text darken-3 ">volume_off</i>
+                </td>
+                <td>
+                    Enables or disables the speaker. If you hover it, you can use the slider to handle the meeting's
+                    volume.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="material-icons">picture_in_picture</i>
+                </td>
+                <td>
+                    -
+                </td>
+                <td>
+                    Hides or shows all the small videos (the self video and the participants videos).
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="material-icons">view_compact</i>
+                </td>
+                <td>
+                    <i class="material-icons">view_comfy</i>
+                </td>
+                <td>
+                    Toggles between active speaker (default, the participant who is is talking will appear on the main
+                    video) or manual speaker (the main video will be selected manually).
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="material-icons">settings</i>
+                </td>
+                <td>
+                    -
+                </td>
+                <td>
+                    Displays information about the meeting and also some links to give feedback and get help.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="material-icons">screen_share</i>
+
+                </td>
+                <td>
+                    <i class="material-icons">stop_screen_share</i>
+                </td>
+                <td>
+                    Displays a dropdown to share the screen and select between active shares.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="material-icons red-text darken-3">call_end</i>
+                </td>
+                <td>
+                    -
+                </td>
+                <td>
+                    Disconnects from the meeting.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <h4 class="ui header" id="self-video">3. Self video</h4>
+        <p>It will display your webcam video (what others can see). If your webcam or microphone are disabled, icons
+            will appear on one of the corners.</p>
+        <h4 class="ui header" id="participants-videos">4. Participants videos</h4>
+        <p>Here there will be displayed the video streams from other participants (maximum number is 3 + the screen
+            sharing video).</p>
+        <p>If you click one of the videos, it will be switched off with the big main video.</p>
+        <h4 class="ui header" id="chat-box">5. Chat box</h4>
+        <p>With the chat box you will be able to send and receive public messages (from the main chat) and private
+            messages (if you clicked on a user in the participants list or if other participant sends you a
+            message).</p>
+        <p>You can switch between all the available chats by clicking on the top left button, which displays the name of
+            the current active chat.</p>
+        <p>You can hide the chat box by clicking on the arrow buttom over the chat box.</p>
+
+      {{bottom-disclaimer}}
+    </div>
+
+</div>

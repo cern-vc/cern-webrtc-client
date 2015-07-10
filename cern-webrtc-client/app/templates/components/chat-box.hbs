@@ -1,0 +1,84 @@
+<button id="hideSidebarButton" class="circular ui icon black button " {{action "showHideChat"}}><i
+        class="chevron right icon"></i></button>
+
+<div class="chat-box">
+    <div class="ui segment chat">
+
+        <div class="ui right pointing dropdown icon button">
+            <i class="chevron left icon"></i>
+          {{#if hasUnreadMessages}}
+              <div class="floating ui red label"><i class="mail icon"></i></div>
+          {{/if}}
+            <span class="text" id="chatTextName">Main chat</span>
+            <div class="left menu">
+                <div class="item {{if (is-equal meeting.mainChat.id activeChat.id) 'active' ''}}" {{action 'setChatAsActiveChat' meeting.mainChat}}>
+                    Main chat
+                </div>
+                <div class="header">
+                    Private chats
+                </div>
+              {{#if meeting.privateChats}}
+                {{#each meeting.privateChats as |chat|}}
+                  {{#if chat.isVisible}}
+                      <div class="item {{if (is-equal chat.id activeChat.id) 'active' ''}}"
+                        {{action 'setChatAsActiveChat' chat}}>
+                        {{#unless (is-equal chat.id activeChat.id)}}
+                          {{#if chat.hasUnreadMessages}}
+                              <i class="mail icon"></i>
+                          {{/if}}
+                        {{/unless}}
+                        {{#if chat.name}}
+                          {{chat.name}}
+                        {{else}}
+                          {{chat.participant.name}}
+                        {{/if}}
+                      </div>
+                  {{/if}}
+                {{/each}}
+              {{else}}
+                  <div class="disabled item">There are no private chats</div>
+              {{/if}}
+            </div>
+        </div>
+
+        <div class="ui comments col s12">
+            <div id="messages-list-inner">
+                <div id="messages-list-scrollable" class="ui celled list">
+                  {{#each activeChat.messages as |message|}}
+                      <div class="comment">
+                          <a class="avatar">
+                              <i class="ui avatar image user icon"></i>
+                          </a>
+                          <div class="content">
+                              <a class="author">{{message.sender}}</a>
+                              <div class="metadata">
+                                  <div class="date"><span data-livestamp="currentTimeStamp"></span></div>
+                              </div>
+                              <div class="text">
+                                {{message.text}}
+                              </div>
+                          </div>
+                      </div>
+                  {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="ui form">
+            <div class="field">
+                <div class="ui fluid action input">
+                  {{input type="text" value=messageText enter="chatSendMessage" id="chatMessageText" placeholder=(t 'chat_box.field.chat_message_placeholder')}}
+                    <button class="ui primary button indico-blue"
+                      {{bind-attr disabled=activeChat.isDisabled}}
+                      {{action "chatSendMessage"}}><i class="material-icons right">send</i>
+                    </button>
+                  {{#if activeChat.isDisabled}}
+                      <p class="red-text darken-3">This user is offline</p>
+                  {{/if}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

@@ -1,0 +1,22 @@
+<div id="shareListButton" class="big circular ui icon top left pointing dropdown button black">
+    <i class="material-icons">
+        screen_share
+    </i>
+    <div class="inverted menu">
+        <div class="header">Sharing</div>
+        <div class="item" {{action 'shareOrStopScreenSharing'}}>{{if isLocalSharing (t "meeting_box.stop_sharing") (t "meeting_box.start_sharing")}}</div>
+        <div class="ui divider"></div>
+        <div class="header">{{t "meeting_box.available_shares"}}</div>
+      {{#if (is-bigger transformedShares.length 0) }}
+        {{#each transformedShares as |share|}}
+            <div class="item" data-id="{{share.id}}" {{action "selectShare" share.id}}>
+              {{share.name}}
+            </div>
+        {{/each}}
+      {{else}}
+          <div class="disabled item">No shares available</div>
+      {{/if}}
+    </div>
+</div>
+
+{{"meeting/modal-share" isUsingCompatibleBrowser=isUsingCompatibleBrowser}}

@@ -1,0 +1,28 @@
+stages:
+  - test
+
+test:
+  image: node:4.2.6
+  stage: test
+  tags:
+    - qa
+    - docker
+    - frontend
+  cache:
+    paths:
+      - node_modules
+  variables:
+    EMBER_CLI_VERSION: "2.8.0"
+    BOWER_VERSION: "1.8.0"
+    PHANTOMJS_VERSION: "2.1.7"
+  before_script:
+    - npm config set spin false
+    - npm install -g ember-cli@${EMBER_CLI_VERSION}
+    - npm install -g bower@${BOWER_VERSION}
+    - bower --version
+    - npm install -g phantomjs-prebuilt@${PHANTOMJS_VERSION}
+  script:
+    - cd cern-webrtc-client
+    - npm install
+    - bower install --allow-root
+    - ember test
