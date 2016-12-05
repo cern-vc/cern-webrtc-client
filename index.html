@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Cern-webrtc-client by cern-vidyo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Cern-webrtc-client</h1>
+      <h2 class="project-tagline">This application is a Vidyo WebRTC Client. It is connected to the Vidyo infraestructure and allows people to make multi user videoconference calls.</h2>
+      <a href="https://github.com/cern-vidyo/cern-webrtc-client" class="btn">View on GitHub</a>
+      <a href="https://github.com/cern-vidyo/cern-webrtc-client/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/cern-vidyo/cern-webrtc-client/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="cern-webrtc-vidyo-client" class="anchor" href="#cern-webrtc-vidyo-client" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CERN WebRTC Vidyo Client</h1>
+
+<p>This application is a Vidyo WebRTC Client. It is connected to the Vidyo infraestructure and allows people to make multi user videoconference calls.
+It is built using Javascript, Ember-Cli and Vidyo technologies.</p>
+
+<h2>
+<a id="compatibility" class="anchor" href="#compatibility" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compatibility</h2>
+
+<ul>
+<li>Firefox &gt;= 45</li>
+<li>Chrome &gt;= 50</li>
+</ul>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
+
+<ul>
+<li>Multi user videoconferencing with video and audio support.</li>
+<li>Desktop notifications.</li>
+<li>Public and private chats.</li>
+<li>Audio/video device selection.</li>
+<li>Oauth2 authentication.</li>
+<li>Support for private and public meetings.</li>
+<li>Screen sharing (using Firefox and Chrome plugins).</li>
+</ul>
+
+<h2>
+<a id="quick-guide" class="anchor" href="#quick-guide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quick guide</h2>
+
+<p>If you don't have experience using Ember-cli, go to the <a href="https://gitlab.cern.ch/fernanre/webrtc-vidyo-client/wikis/tutorials">"Tutorials"</a> section.</p>
+
+<h3>
+<a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prerequisites</h3>
+
+<ul>
+<li>node &gt;= 4.2.4</li>
+<li>npm &gt;= 3.10.5</li>
+<li>bower &gt;= 1.8.0</li>
+<li>phantomjs &gt;= 2.1.1</li>
+</ul>
+
+<h3>
+<a id="build-the-application" class="anchor" href="#build-the-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Build the application</h3>
+
+<pre><code>npm install &amp;&amp; bower install
+</code></pre>
+
+<h3>
+<a id="generate-self-signed-certificates" class="anchor" href="#generate-self-signed-certificates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Generate Self-signed certificates</h3>
+
+<ol>
+<li><code>openssl genrsa -des3 -out server.key 2048</code></li>
+<li><code>openssl rsa -in server.key -out server.key.insecure</code></li>
+<li><code>mv server.key server.key.secure</code></li>
+<li><code>mv server.key.insecure server.key</code></li>
+<li><code>openssl req -new -key server.key -out server.csr</code></li>
+<li><code>openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt</code></li>
+</ol>
+
+<p>Move the generated files to the <code>ssl</code> folder.</p>
+
+<h3>
+<a id="setup-your-configuration" class="anchor" href="#setup-your-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup your configuration</h3>
+
+<p>Create a <code>config/.env</code> file using <code>config/.env.sample</code> as template.</p>
+
+<h3>
+<a id="set-up-your-vidyo-webrtc-plugin-files" class="anchor" href="#set-up-your-vidyo-webrtc-plugin-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Set up your Vidyo WebRTC plugin files</h3>
+
+<p>Copy your Vidyo plugin files to <code>vendor/vidyo</code>.</p>
+
+<h3>
+<a id="run-the-application" class="anchor" href="#run-the-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Run the application</h3>
+
+<pre><code>ember s -ssl=true
+</code></pre>
+
+<h3>
+<a id="test-the-application" class="anchor" href="#test-the-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Test the application</h3>
+
+<pre><code>ember test --server
+</code></pre>
+
+<h3>
+<a id="build-for-production-and-qa" class="anchor" href="#build-for-production-and-qa" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Build for production and qa</h3>
+
+<h4>
+<a id="qa" class="anchor" href="#qa" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>QA</h4>
+
+<pre><code>npm run build_qa
+</code></pre>
+
+<h4>
+<a id="production" class="anchor" href="#production" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Production</h4>
+
+<pre><code>npm run build_production
+</code></pre>
+
+<p>The generated files will be available in <code>dist/qa</code> and <code>dist/production</code>.</p>
+
+<h2>
+<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration</h2>
+
+<p><code>ROOT_URL=/</code>
+Path of the project
+<code>SENTRY_DSN</code>
+If using Sentry for logging, set it's DSN
+<code>SENTRY_DEVELOPMENT</code>
+Set the development mode for Sentry (true|false)</p>
+
+<p><code>SENTRY_DEBUG</code>
+Set the debug mode for Sentry (true|false)</p>
+
+<p><code>SENTRY_CDN=https://cdn.ravenjs.com/1.2.0/raven.min.js</code>
+CDN Url for the Sentry Javascript plugin.</p>
+
+<p><code>BACKEND_SERVER_URL</code>
+URL of the API and authentication backends.</p>
+
+<p><code>OAUTH2_API_KEY</code>
+Oauth ID.</p>
+
+<p><code>OAUTH2_CALLBACK_URL</code>
+Oauth callback for authentication.</p>
+
+<p><code>PIWIK_ID</code>
+Piwik ID if using Piwik for analytics.</p>
+
+<p><code>PIWIK_URL</code>
+Piwik URL if using Piwik for analytics.</p>
+
+<p><code>SESSION_MANAGER</code>
+URL of the Vidyo WebRTC session manager.</p>
+
+<p><code>VIDYO_PORTAL_URL</code>
+URL of the Vidyo Portal to generate the room URLs.</p>
+
+<p><code>FEEDBACK_URL</code>
+URL to redirect to on the feedback button.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/cern-vidyo/cern-webrtc-client">Cern-webrtc-client</a> is maintained by <a href="https://github.com/cern-vidyo">cern-vidyo</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
