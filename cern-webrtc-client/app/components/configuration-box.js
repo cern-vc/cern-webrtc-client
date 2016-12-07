@@ -21,7 +21,7 @@ export default TrackedComponent.extend({
    */
   willDestroyElement() {
     this._super(...arguments);
-    this.get('logger').debug("Will destroy configuration box");
+    console.debug("Will destroy configuration box");
     Ember.$('.modal-configuration').remove();
   },
 
@@ -34,9 +34,9 @@ export default TrackedComponent.extend({
       // detachable: false,
       observeChanges: true,
       onShow: function () {
-        self.get('logger').debug("onShow");
+        console.debug("onShow");
         self.set('modalConfigurationIsOpen', true);
-        self.get('logger').debug("Configuration Modal Opened");
+        console.debug("Configuration Modal Opened");
         self.initAudioVideoDevices();
         Ember.$('select.dropdown').dropdown();
       },
@@ -60,14 +60,14 @@ export default TrackedComponent.extend({
 
     for (var i = 0; i !== deviceInfos.length; ++i) {
       var deviceInfo = deviceInfos[i];
-      this.get('logger').debug(deviceInfo);
+      console.debug(deviceInfo);
 
       if (deviceInfo.kind === 'audioinput') {
         self.get("availableAudioSources").push(deviceInfo);
       } else if (deviceInfo.kind === 'videoinput') {
         self.get("availableVideoSources").push(deviceInfo);
       } else {
-        this.get('logger').debug('Some other kind of source/device: ', deviceInfo);
+        console.debug('Some other kind of source/device: ', deviceInfo);
       }
     }
 
@@ -77,7 +77,7 @@ export default TrackedComponent.extend({
    * @param error Error message
    */
   errorCallback(error) {
-    this.get('logger').debug('navigator.getUserMedia error: ', error);
+    console.debug('navigator.getUserMedia error: ', error);
   },
 
   /**
@@ -85,25 +85,25 @@ export default TrackedComponent.extend({
    * @param self Reference to the current class
    */
   setActiveDevice(self){
-    this.get('logger').debug("Set active device");
+    console.debug("Set active device");
     var selectedCamera = Ember.$("#configurationCamera").val();
     var selectedMic = Ember.$("#configurationMic").val();
 
-    this.get('logger').debug("Current camera: " + selectedCamera);
-    this.get('logger').debug("Current mic: " + selectedMic);
+    console.debug("Current camera: " + selectedCamera);
+    console.debug("Current mic: " + selectedMic);
 
     var selectedCameraId = this.get("availableVideoSources")[selectedCamera].deviceId;
     var selectedMicId = this.get("availableAudioSources")[selectedMic].deviceId;
 
-    this.get('logger').debug("Current camera ID: " + selectedCameraId);
-    this.get('logger').debug("Current mic ID: " + selectedMicId);
+    console.debug("Current camera ID: " + selectedCameraId);
+    console.debug("Current mic ID: " + selectedMicId);
 
     var constraints = {
       video: {optional: [{sourceId: selectedCameraId}]},
       audio: {optional: [{sourceId: selectedMicId}]}
     };
 
-    this.get('logger').debug(constraints);
+    console.debug(constraints);
 
     if (self.get('stream')) {
       self.get('stream').getTracks().forEach(function (track) {
@@ -125,14 +125,14 @@ export default TrackedComponent.extend({
     mediaDevices.getUserMedia(constraints).then(function (stream) {
 
       self.set('stream', stream);
-      self.get('logger').debug(stream);
+      console.debug(stream);
       var video = document.querySelector("#player");
       video.src = "";
       video.src = window.URL.createObjectURL(stream);
       video.play();
       return navigator.mediaDevices.enumerateDevices();
     }).catch(function (e) {
-      self.get('logger').debug(e);
+      console.debug(e);
     });
 
 
@@ -143,7 +143,7 @@ export default TrackedComponent.extend({
    */
   openConfigurationModal(){
     this.set('modalConfigurationIsOpen', true);
-    this.get('logger').debug("Configuration Modal Opened");
+    console.debug("Configuration Modal Opened");
     this.initAudioVideoDevices();
   },
 
@@ -165,14 +165,14 @@ export default TrackedComponent.extend({
    * Callback that takes place when the configuration modal is closed.
    */
   closeConfigurationModal(){
-    this.get('logger').debug("Close configuration modal");
+    console.debug("Close configuration modal");
     this.set('modalConfigurationIsOpen', false);
 
     var video = document.querySelector("#player");
     video.src = "";
 
     if (this.get('stream')) {
-      this.get('logger').debug("Stop stream tracks...");
+      console.debug("Stop stream tracks...");
       this.get('stream').getTracks().forEach(function (track) {
         track.stop();
       });
@@ -201,7 +201,7 @@ export default TrackedComponent.extend({
      * Onchange action for the video input
      */
     changeVideoInput(){
-      this.get('logger').debug("changeVideoInput");
+      console.debug("changeVideoInput");
       this.setActiveDevice(this);
 
     },
@@ -209,7 +209,7 @@ export default TrackedComponent.extend({
      * Onchange action for the audio input
      */
     changeAudioInput(){
-      this.get('logger').debug("changeAudioInput");
+      console.debug("changeAudioInput");
       this.setActiveDevice(this);
     },
 
@@ -218,7 +218,7 @@ export default TrackedComponent.extend({
      */
     changeNotificationsSettings(){
       var self = this;
-      this.get('logger').debug("Change notifications settings");
+      console.debug("Change notifications settings");
       if (!("Notification" in window)) {
         alert("This browser does not support desktop notification");
       }

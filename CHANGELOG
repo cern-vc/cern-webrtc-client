@@ -7,6 +7,11 @@ This project adheres to [CERN Vidyo WebRTC Client](https://vidyowebrtc.web.cern.
 - Volume control to microphone.
 - Close private chat button
 
+## 0.13.0 - 2016-12-07
+### Improved
+- Updated libraries.
+- Added user debugging feature.
+
 ## 0.12.1 - 2016-09-20
 ### Fixed
 - Microphone permissions on Firefox working again on the loadging screen.

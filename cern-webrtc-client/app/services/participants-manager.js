@@ -8,7 +8,7 @@ export default Ember.Service.extend({
       Ember.run(function () {
         self.set('currentMeetingKey', currentMeetingKey);
         self.populateParticipantsList(participants, currentMeetingKey).then(function () {
-          self.get('logger').debug("All participants populated");
+          console.debug("All participants populated");
           resolve();
         });
       });
@@ -22,7 +22,7 @@ export default Ember.Service.extend({
    */
   populateParticipantsList: function (newParticipantsList, currentMeetingKey) {
     var self = this;
-    self.get('logger').debug("populateParticipantsList");
+    console.debug("populateParticipantsList");
     var participantsIdsToKeep = [];
     return this.store.find('meeting', currentMeetingKey).then(function (meeting) {
       var oldParticipantsList = meeting.get('participants');
@@ -50,7 +50,7 @@ export default Ember.Service.extend({
       });
       oldParticipantsList.forEach(function (participant) {
         if (participant && (participantsIdsToKeep.indexOf(participant.get('id')) === -1)) {
-          self.get('logger').debug("Want to disable chat: " + participant.get('uri'));
+          console.debug("Want to disable chat: " + participant.get('uri'));
           self.get('chat-manager').disablePrivateChat(participant.get('uri'));
           participant.deleteRecord();
         }

@@ -5,6 +5,8 @@ import config from '../config/environment';
 export default TrackedComponent.extend({
   isConnected: Ember.computed.alias('connection-manager.isConnected'),
   isDisconnectedFromServer: Ember.computed.alias('connection-manager.disconnectedFromServer'),
+  logEnabled: Ember.computed.alias('logger.logEnabled'),
+  queryParamManager: Ember.inject.service('query-param-manager'),
   mouseX: null,
   mouseY: null,
   isParticipantsListVisible: true,
@@ -26,14 +28,14 @@ export default TrackedComponent.extend({
   updateViewWhenConnected: function () {
     var self = this;
     if (this.get('isConnected')) {
-      this.get('logger').debug("currentActiveChat meeting-box");
-      this.get('logger').debug(this.get('chat-manager').get("currentActiveChat"));
+      console.debug("currentActiveChat meeting-box");
+      console.debug(this.get('chat-manager').get("currentActiveChat"));
       // Fix: With this, the self view is muted in Firefox. It seems HTML muted attr is not working.
       if (config.environment !== "test" && Ember.$("#localVideo").get(0)) {
         Ember.$("#localVideo").get(0).muted = true;
       }
 
-      this.get('logger').debug("speakerVolume: ", self.get("speakerVolume"));
+      console.debug("speakerVolume: ", self.get("speakerVolume"));
 
     }
   }.observes('isConnected'),
@@ -55,14 +57,14 @@ export default TrackedComponent.extend({
     if (!thisVideoContainerParam) {
       thisVideoContainer = this.get("currentClickedVideo");
       this.set("currentClickedVideo", null);
-      this.get('logger').debug(thisVideoContainer);
+      console.debug(thisVideoContainer);
     } else {
       thisVideoContainer = thisVideoContainerParam;
     }
 
     if (thisVideoContainer) {
-      this.get('logger').debug("thisVideoContainer");
-      this.get('logger').debug(thisVideoContainer);
+      console.debug("thisVideoContainer");
+      console.debug(thisVideoContainer);
       var mainStreamSrc;
 
       var mainVideoContainer = Ember.$('#mainVideoContainer');
@@ -77,11 +79,11 @@ export default TrackedComponent.extend({
       mainStreamSrc = mainVideo.srcObject;
 
 
-      this.get('logger').debug("==== Main Video ====");
-      this.get('logger').debug("Main video container ID: " + mainVideoContainerId);
-      this.get('logger').debug("Main video ID: " + mainVideoId);
-      this.get('logger').debug("Main label ID: " + mainLabelId);
-      this.get('logger').debug(mainStreamSrc);
+      console.debug("==== Main Video ====");
+      console.debug("Main video container ID: " + mainVideoContainerId);
+      console.debug("Main video ID: " + mainVideoId);
+      console.debug("Main label ID: " + mainLabelId);
+      console.debug(mainStreamSrc);
 
       let thisVideoContainerId = thisVideoContainer.attr('id');
       var clickedLabel = thisVideoContainer.find('.participant-title:first');
@@ -94,16 +96,16 @@ export default TrackedComponent.extend({
 
       thisStreamSrc = thisVideo.srcObject;
 
-      this.get('logger').debug("==== thisVideo ====");
-      this.get('logger').debug("This video container ID: " + thisVideoContainerId);
-      this.get('logger').debug("This video ID: " + thisVideoId);
-      this.get('logger').debug("This label ID: " + thisLabelId);
-      this.get('logger').debug(thisStreamSrc);
+      console.debug("==== thisVideo ====");
+      console.debug("This video container ID: " + thisVideoContainerId);
+      console.debug("This video ID: " + thisVideoId);
+      console.debug("This label ID: " + thisLabelId);
+      console.debug(thisStreamSrc);
 
 
       if (thisStreamSrc !== undefined && mainStreamSrc !== undefined) {
-        this.get('logger').debug("This stream and mainStream defined");
-        this.get('logger').debug(mainVideo);
+        console.debug("This stream and mainStream defined");
+        console.debug(mainVideo);
 
 
         mainVideo.srcObject = thisStreamSrc;
@@ -152,6 +154,13 @@ export default TrackedComponent.extend({
 
   actions: {
     /**
+     * Displays the feedback modal to send feedback
+     */
+    displayFeedbackModal(){
+      console.debug("Display feedback modal");
+      Ember.$('.modal-feedback').modal("show");
+    },
+    /**
      * Hides the small video streams
      */
     clientPreviewModeToggle(){
@@ -166,7 +175,7 @@ export default TrackedComponent.extend({
      * Disconnects the meeting. If its triggered manually it is marked as expected, so it won't display an error message
      */
     disconnect() {
-      this.get('logger').debug("Component meeting-box: disconnect");
+      console.debug("Component meeting-box: disconnect");
       this.get('connection-manager').setExpectDisconnect(true);
       if (this.get('vidyo-requests-api').disconnectMeeting()) {
         var self = this;
@@ -175,7 +184,7 @@ export default TrackedComponent.extend({
         }, 500);
 
       } else {
-        this.get('logger').debug("Component meeting-box: disconnect -> Cannot disconnect");
+        console.debug("Component meeting-box: disconnect -> Cannot disconnect");
       }
     },
 
@@ -194,7 +203,7 @@ export default TrackedComponent.extend({
       this.get('vidyo-requests-api').clientMicrophoneMute(!this.get('isMutedMic'));
 
       var result = this.get('vidyo-requests-api').clientRequestGetVolumeAudioIn();
-      this.get('logger').debug("VOLUMEN IN: ", result);
+      console.debug("VOLUMEN IN: ", result);
 
     },
     /**
@@ -228,8 +237,8 @@ export default TrackedComponent.extend({
     this._super(...arguments);
     var self = this;
 
-    this.get('logger').debug('didInsert Meeting Box');
-    this.get('logger').debug("currentActiveChat didInsert meeting-box");
+    console.debug('didInsert Meeting Box');
+    console.debug("currentActiveChat didInsert meeting-box");
 
     this.initializeClickableVideoEvents();
 
@@ -271,7 +280,7 @@ export default TrackedComponent.extend({
         },
         onShow: function () {
           Ember.run.later(function () {
-            self.get('logger').debug("Changing volume to " + self.get("speakerVolume"));
+            console.debug("Changing volume to " + self.get("speakerVolume"));
             Ember.$('#speaker-range').range('set value', self.get("speakerVolume"));
           }, 400);
         }
@@ -285,12 +294,12 @@ export default TrackedComponent.extend({
       input: "#speaker-value",
       onChange: function (val) {
         self.set("speakerVolume", val);
-        self.get('logger').debug(self.get("onChange"));
+        console.debug(self.get("onChange"));
         self.get('vidyo-requests-api').clientRequestSetVolumeAudioOut(val);
 
-        // self.get('logger').debug("VOLUME Out: ", val);
+        // console.debug("VOLUME Out: ", val);
         Ember.$('audio,video').each(function () {
-          // self.get('logger').debug(Ember.$(this));
+          // console.debug(Ember.$(this));
           Ember.$(this)[0].volume = val;
         });
       }
@@ -321,9 +330,9 @@ export default TrackedComponent.extend({
 
     Ember.$('.clickable-video').on('click', function () {
       var previousPreferredParticipantsNumber = self.get('numPreferredParticipants');
-      self.get('logger').debug("Previous participants number: " + previousPreferredParticipantsNumber);
+      console.debug("Previous participants number: " + previousPreferredParticipantsNumber);
       if (previousPreferredParticipantsNumber !== 0) {
-        self.get('logger').debug("Changing preferred participants number");
+        console.debug("Changing preferred participants number");
         self.get('meeting-manager').setNumPreferredParticipants(0);
         self.get('vidyo-requests-api').clientLayoutSet(self.get('numPreferredParticipants'));
 
@@ -333,14 +342,14 @@ export default TrackedComponent.extend({
           Ember.$('.status-changed.nag').nag('hide');
         }, 2000);
       }
-      self.get('logger').debug("maindiv: " + Ember.$('#participantDiv0').find('video:first').attr('id'));
-      self.get('logger').debug("maindiv: " + Ember.$(this).find('video:first').attr('id'));
+      console.debug("maindiv: " + Ember.$('#participantDiv0').find('video:first').attr('id'));
+      console.debug("maindiv: " + Ember.$(this).find('video:first').attr('id'));
 
       if (Ember.$('#participantDiv0').find('video:first').attr('id') !== Ember.$(this).find('video:first').attr('id')) {
-        self.get('logger').debug("Not ClickedMainDiv");
+        console.debug("Not ClickedMainDiv");
         self.set("currentClickedVideo", Ember.$(this));
       } else {
-        self.get('logger').debug("ClickedMainDiv");
+        console.debug("ClickedMainDiv");
         self.set("currentClickedVideo", null);
       }
       self.switchVideoStreams(Ember.$(this));
@@ -364,7 +373,7 @@ export default TrackedComponent.extend({
    * The meeting data can be removed here and then it will redirect to the index by sending an action to its parent.
    */
   clearDataAndRedirectToIndex() {
-    this.get('logger').debug('clearDataAndRedirectToIndex');
+    console.debug('clearDataAndRedirectToIndex');
     Ember.$('.tooltipped').popup("hide all");
     this.sendAction('redirectToIndex');
   }

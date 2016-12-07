@@ -9,6 +9,7 @@ export default TrackedComponent.extend({
   microphones: Ember.computed.alias('configuration-manager.microphones'),
   connectionFault: Ember.computed.alias('connection-manager.connectionFault'),
   serverAvailable: Ember.computed.alias('connection-manager.serverAvailable'),
+  logEnabled: Ember.computed.alias('logger.logEnabled'),
   roomKey: '',
   roomURLInputInvalidFeedback: '',
   roomURLInputClass: '',
@@ -156,8 +157,16 @@ export default TrackedComponent.extend({
      * Displays the configuration modal to set devices and notifications
      */
     displayConfigurationModal(){
-      this.get('logger').debug("Display configuration modal");
+      console.debug("Display configuration modal");
       Ember.$('.modal-configuration').modal("show");
+    },
+
+    /**
+     * Displays the feedback modal to send feedback
+     */
+    displayFeedbackModal(){
+      console.debug("Display feedback modal");
+      Ember.$('.modal-feedback').modal("show");
     },
 
     /**
@@ -203,8 +212,8 @@ export default TrackedComponent.extend({
         this.get('meeting-manager').loadCurrentMeeting(meetingKey).then(function (meeting) {
           self.get('connection-manager').setIsJoining(true);
           self.get('meeting-manager').set('guestName', self.get('guestName'));
-          self.get('logger').debug("currentActiveChat loading-box");
-          self.get('logger').debug(self.get('chat-manager').get("currentActiveChat"));
+          console.debug("currentActiveChat loading-box");
+          console.debug(self.get('chat-manager').get("currentActiveChat"));
           self.sendAction('redirectToMeeting', meeting);
         });
       }

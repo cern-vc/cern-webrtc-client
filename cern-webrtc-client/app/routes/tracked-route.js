@@ -32,7 +32,7 @@ export default Ember.Route.extend({
     },
     willTransition(){
       var self = this;
-      this.get('logger').debug("Will transition...");
+      console.debug("Will transition...");
       DetectRTC.load(function () {
         if (DetectRTC.isMobileDevice) {
           self.transitionTo('downloads');

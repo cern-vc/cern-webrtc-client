@@ -17,7 +17,7 @@ export default Ember.Service.extend({
     } else {
       msg = "VidyoWeb did not send " + inEvent.type + " event successfully!";
     }
-    this.get("logger").debug(msg);
+    console.debug(msg);
   },
 
   /**
@@ -35,7 +35,7 @@ export default Ember.Service.extend({
     } else {
       msg = "VidyoWeb did not send " + inEvent.type + " event successfully!";
     }
-    this.get("logger").debug(msg);
+    console.debug(msg);
 
   },
 
@@ -53,7 +53,7 @@ export default Ember.Service.extend({
     } else {
       msg = "VidyoWeb did not send " + inEvent.type + " event successfully!";
     }
-    this.get("logger").debug(msg);
+    console.debug(msg);
   },
 
   /**
@@ -70,7 +70,7 @@ export default Ember.Service.extend({
     } else {
       msg = "VidyoWeb did not send " + inEvent.type + " event successfully!";
     }
-    this.get("logger").debug(msg);
+    console.debug(msg);
   },
 
   /**
@@ -89,7 +89,7 @@ export default Ember.Service.extend({
     } else {
       msg = "VidyoWeb did not send " + inEvent.type + " event successfully!";
     }
-    this.get("logger").debug(msg);
+    console.debug(msg);
     this.set('numPreferredParticipants', params.numPreferred);
   },
 
@@ -117,7 +117,7 @@ export default Ember.Service.extend({
     } else {
       msg = "VidyoWeb did not send " + inEvent.type + " event successfully!";
     }
-    this.get("logger").debug(msg);
+    console.debug(msg);
   },
 
   /**
@@ -133,7 +133,7 @@ export default Ember.Service.extend({
     } else {
       msg = "VidyoWeb did not send " + inEvent.type + " event successfully!";
     }
-    this.get("logger").debug(msg);
+    console.debug(msg);
   },
 
   /**
@@ -152,7 +152,7 @@ export default Ember.Service.extend({
     } else {
       msg = "VidyoWeb did not send " + inEvent.type + " event successfully!";
     }
-    this.get("logger").debug(msg);
+    console.debug(msg);
 
     return this;
   },
@@ -171,7 +171,7 @@ export default Ember.Service.extend({
     } else {
       msg = "VidyoWeb did not send " + inEvent.type + " event successfully!";
     }
-    this.get("logger").debug(msg);
+    console.debug(msg);
 
     return this;
   },
@@ -188,7 +188,7 @@ export default Ember.Service.extend({
     } else {
       msg = "VidyoWeb did not send " + request.type + " request successfully!";
     }
-    this.get("logger").debug(msg);
+    console.debug(msg);
 
     return request;
   },
@@ -208,7 +208,7 @@ export default Ember.Service.extend({
     } else {
       msg = "VidyoWeb did not send " + request.type + " request successfully!";
     }
-    this.get("logger").debug(msg);
+    console.debug(msg);
 
     numberOfShares = request.newApp;
     return numberOfShares;
@@ -226,7 +226,7 @@ export default Ember.Service.extend({
     } else {
       msg = "VidyoWeb did not send " + request.type + " request successfully!";
     }
-    this.get("logger").debug(msg);
+    console.debug(msg);
 
     return request;
   },
@@ -244,7 +244,7 @@ export default Ember.Service.extend({
     } else {
       msg = "VidyoWeb did not send " + request.type + " request successfully!";
     }
-    this.get("logger").debug(msg);
+    console.debug(msg);
 
 
     return request;
@@ -263,7 +263,7 @@ export default Ember.Service.extend({
     } else {
       msg = "VidyoWeb did not send " + request.type + " request successfully!";
     }
-    this.get("logger").debug(msg);
+    console.debug(msg);
 
     return request;
   },
@@ -308,7 +308,7 @@ export default Ember.Service.extend({
     } else {
       msg = "VidyoWeb did not send " + request.type + " request successfully!";
     }
-    this.get("logger").debug(msg);
+    console.debug(msg);
 
     return request;
   },
@@ -329,7 +329,7 @@ export default Ember.Service.extend({
       msg = "VidyoWeb did not send " + request.type + " request successfully!";
     }
 
-    this.get("logger").debug(msg);
+    console.debug(msg);
 
     return request;
   },
@@ -346,7 +346,7 @@ export default Ember.Service.extend({
       msg = "VidyoWeb did not send " + request.type + " request successfully!";
     }
 
-    this.get("logger").debug(msg);
+    console.debug(msg);
 
     return request;
   },
@@ -363,7 +363,7 @@ export default Ember.Service.extend({
       msg = "VidyoWeb did not send " + request.type + " request successfully!";
     }
 
-    this.get("logger").debug(msg);
+    console.debug(msg);
 
     return request;
   },
@@ -379,7 +379,7 @@ export default Ember.Service.extend({
       msg = "VidyoWeb did not send " + request.type + " request successfully!";
     }
 
-    this.get("logger").debug(msg);
+    console.debug(msg);
 
     return request;
   }

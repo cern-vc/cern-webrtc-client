@@ -6,7 +6,7 @@ module.exports = function (environment) {
     environment: environment,
     rootURL: process.env.ROOT_URL,
     locationType: 'auto',
-    version: "0.12.1",
+    version: "0.13.0",
     session_manager: process.env.SESSION_MANAGER,
     backend_server_url: process.env.BACKEND_SERVER_URL,
     vidyo_portal_url: process.env.VIDYO_PORTAL_URL,

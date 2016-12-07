@@ -17,20 +17,20 @@ export default Ember.Service.extend({
       vidyoClientObj = vidyoClient();
       vidyoClientObj.setOutEventCallbackObject(this);
       vidyoClientObj.setDefaultOutEventCallbackMethod(this.vidyoClientCallbacks);
-      vidyoClientObj.setLogCallback(this.get("logger").debug);
+      vidyoClientObj.setLogCallback(console.debug);
       vidyoClientObj.setSessionManager(config["session_manager"]);
 
 
       this.set('client', vidyoClientObj);
 
       if (this.get('client').start()) {
-        this.get('logger').debug("Client started successfully");
+        console.debug("Client started successfully");
       } else {
-        this.get('logger').debug("Client NOT started successfully");
+        console.debug("Client NOT started successfully");
       }
 
     } else {
-      this.get('logger').debug("Loading mockup-client");
+      console.debug("Loading mockup-client");
       vidyoClientObj = this.get("client");
       vidyoClientObj.test();
 
@@ -80,8 +80,8 @@ export default Ember.Service.extend({
    * @constructor
    */
   callStateCallback(event){
-    this.get('logger').debug("OutEventCallState");
-    this.get('logger').debug(event);
+    console.debug("OutEventCallState");
+    console.debug(event);
 
     if (event.fault === "Server unreachable") {
       this.get('connection-manager').setIsJoining(false);
@@ -89,7 +89,7 @@ export default Ember.Service.extend({
     }
 
     if (event.fault === 'ErrorWrongPin' || event.fault === 'ErrorMeetingLocked') {
-      this.get('logger').debug("Wrong PIn");
+      console.debug("Wrong PIn");
       this.get('connection-manager').setIsJoining(false);
       this.get('connection-manager').setConnectionFault(event);
     }
@@ -107,12 +107,12 @@ export default Ember.Service.extend({
    */
   participantsChangedCallback(event){
     var self = this;
-    self.get('logger').debug("OutEventParticipantsChanged");
-    self.get('logger').debug(event);
+    console.debug("OutEventParticipantsChanged");
+    console.debug(event);
     var participants = this.get('vidyo-requests-api').clientParticipantsGet();
-    self.get('logger').debug("this.get('vidyo-requests-api').clientCurrentUserGet()");
-    self.get('logger').debug(this.get('vidyo-requests-api').clientCurrentUserGet());
-    self.get('logger').debug(this.get('vidyo-requests-api').clientParticipantsGet());
+    console.debug("this.get('vidyo-requests-api').clientCurrentUserGet()");
+    console.debug(this.get('vidyo-requests-api').clientCurrentUserGet());
+    console.debug(this.get('vidyo-requests-api').clientParticipantsGet());
     let  currentMeetingKey = this.get('meeting-manager').get('currentMeetingKey');
     this.get('participants-manager').participantUpdateEventDone(participants,  currentMeetingKey)
       .then(function () {
@@ -126,11 +126,11 @@ export default Ember.Service.extend({
    */
   devicesChangedCallback(event){
     var self = this;
-    self.get('logger').debug("OutEventDevicesChanged");
-    self.get('logger').debug(event);
+    console.debug("OutEventDevicesChanged");
+    console.debug(event);
     var newConfig = this.get('vidyo-requests-api').clientConfigurationGet();
-    self.get('logger').debug("newConfig");
-    self.get('logger').debug(newConfig);
+    console.debug("newConfig");
+    console.debug(newConfig);
     this.get('configuration-manager').configurationUpdateEventDone(event, newConfig);
   },
 
@@ -141,8 +141,8 @@ export default Ember.Service.extend({
    */
   muteVideoCallback(event){
     var self = this;
-    self.get('logger').debug("OutEventMutedVideo");
-    self.get('logger').debug(event);
+    console.debug("OutEventMutedVideo");
+    console.debug(event);
     self.get('meeting-manager').muteLocalVideo(event);
   },
 
@@ -152,19 +152,19 @@ export default Ember.Service.extend({
    */
   groupChatCallback(event){
     var self = this;
-    self.get('logger').debug("OutEventGroupChat");
+    console.debug("OutEventGroupChat");
     var  currentMeetingKey = this.get('meeting-manager.currentMeetingKey');
-    self.get('logger').debug(this.get('chat-manager.currentActiveChat'));
-    self.get('logger').debug(this.get('chat-manager').test());
-    self.get('logger').debug("plugin currentActiveChat");
+    console.debug(this.get('chat-manager.currentActiveChat'));
+    console.debug(this.get('chat-manager').test());
+    console.debug("plugin currentActiveChat");
     this.get('chat-manager').chatUpdateDone(event,  currentMeetingKey);
   },
 
   meetingInfoUpdateCallback(event){
     var self = this;
-    self.get('logger').debug("OutEventConferenceInfoUpdate");
-    self.get('logger').debug(event.eventStatus);
-    self.get('logger').debug("was event");
+    console.debug("OutEventConferenceInfoUpdate");
+    console.debug(event.eventStatus);
+    console.debug("was event");
     if (event.event === "Recording") {
       if (event.eventStatus === true) {
       } else {
@@ -177,7 +177,7 @@ export default Ember.Service.extend({
    * @param {Object} event Event details
    */
   addShareCallback(event){
-    this.get('logger').debug('OutEventAddShare');
+    console.debug('OutEventAddShare');
     var shares = this.get('vidyo-requests-api').clientSharesGet();
     var decrementedNumApp = shares.numApp - 1;
     this.get('sharing-manager').shareUpdateEvent(event, shares);
@@ -191,8 +191,8 @@ export default Ember.Service.extend({
    * @param {Object} event Event details
    */
   removeShareCallback(event){
-    this.get('logger').debug("OutEventRemoveShare");
-    this.get('logger').debug(event);
+    console.debug("OutEventRemoveShare");
+    console.debug(event);
     var shares = this.get('vidyo-requests-api').clientSharesGet();
     this.get('sharing-manager').shareUpdateEvent(event, shares);
     this.get('sharing-manager').setNumberOfShares(shares.numApp);
@@ -203,8 +203,8 @@ export default Ember.Service.extend({
    * @param {Object} event Event details
    */
   muteAudioInCallback(event){
-    this.get('logger').debug("OutEventMutedAudioIn");
-    this.get('logger').debug(event);
+    console.debug("OutEventMutedAudioIn");
+    console.debug(event);
     this.get('meeting-manager').muteLocalMic(event);
   },
 
@@ -214,7 +214,7 @@ export default Ember.Service.extend({
    * @constructor
    */
   privateChatCallback(event){
-    this.get('logger').debug("OutEventPrivateChat");
+    console.debug("OutEventPrivateChat");
     var  currentMeetingKey = this.get('meeting-manager.currentMeetingKey');
     this.get('chat-manager').privateChatUpdate(event, currentMeetingKey);
   },
@@ -224,21 +224,21 @@ export default Ember.Service.extend({
    * @param event Event details
    */
   muteAudioOutCallback(event){
-    this.get('logger').debug("OutEventMutedAudioOut");
-    this.get('logger').debug(event);
+    console.debug("OutEventMutedAudioOut");
+    console.debug(event);
     this.get('meeting-manager').muteSpeaker(event);
   },
 
   videoStreamsChangedCallback(event){
-    this.get('logger').debug("OutEventVideoStreamsChanged");
-    this.get('logger').debug(event);
+    console.debug("OutEventVideoStreamsChanged");
+    console.debug(event);
     this.get('meeting-manager').setStreamCount(event.streamCount);
   },
 
   eventLinkedCallback: function (event) {
     if (event.activeEid === -1) {
       this.get('connection-manager').setIsJoining(false);
-      this.get('logger').debug("disconnected outEventLinked");
+      console.debug("disconnected outEventLinked");
       this.get('connection-manager').setDisconnectedFromServer(true);
 
       switch (event.error) {
@@ -255,15 +255,15 @@ export default Ember.Service.extend({
    */
   vidyoClientCallbacks: function (event) {
 
-    this.get('logger').debug("vidyoClientCallbacks: event");
-    this.get('logger').debug(event);
+    console.debug("vidyoClientCallbacks: event");
+    console.debug(event);
 
     if (event.type === 'OutEventLogicStarted') {
-      this.get('logger').debug("Callback Logic started...");
+      console.debug("Callback Logic started...");
     }
 
     if (event.type === 'OutEventPluginConnectionSuccess') {
-      this.get('logger').debug("Plugin loaded successfully");
+      console.debug("Plugin loaded successfully");
     }
 
     if (event.type === 'OutEventConferenceActive') {

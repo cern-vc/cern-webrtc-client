@@ -22,7 +22,7 @@ export default TrackedComponent.extend({
     this.set('shouldHandleNewParticipants', false);
     Ember.run.later(function () {
       if (self.get('isConnected')) {
-        self.get('logger').debug("Setting up shouldHandleNewParticipants ");
+        console.debug("Setting up shouldHandleNewParticipants ");
         self.set('shouldHandleNewParticipants', true);
       }
     }, 3000);
@@ -37,8 +37,8 @@ export default TrackedComponent.extend({
 
     this.handleCurrentUser();
 
-    this.get('logger').debug("previous " + this.get('previousParticipantsNumber') + "new " + this.get('meeting.participants.length'));
-    this.get('logger').debug("should handle new participants? " + this.get('shouldHandleNewParticipants'));
+    console.debug("previous " + this.get('previousParticipantsNumber') + "new " + this.get('meeting.participants.length'));
+    console.debug("should handle new participants? " + this.get('shouldHandleNewParticipants'));
 
     this.updateParticipants();
   }.observes('meeting.participants'),
@@ -92,9 +92,9 @@ export default TrackedComponent.extend({
       this.get('chat-manager').activatePrivateChatByParticipant(participant, currentMeetingKey);
       Ember.$("#chatTextName").text(participant.get("name"));
       var isChatVisible = Ember.$('.segment.chat').transition('is visible');
-      this.get('logger').debug(isChatVisible);
+      console.debug(isChatVisible);
       if (!isChatVisible) {
-        this.get('logger').debug("no visible");
+        console.debug("no visible");
         Ember.$("#hideSidebarButton i").removeClass("left");
         Ember.$("#hideSidebarButton i").addClass("right");
         Ember.$('.segment.chat').transition('fly left');

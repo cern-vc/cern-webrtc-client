@@ -36,7 +36,7 @@ export default Ember.Controller.extend({
         Ember.run.later((function () {
           self.openFaultModal();
         }), 50);
-        self.get('logger').debug("Open fault modal index");
+        console.debug("Open fault modal index");
       }
 
     }

@@ -81,6 +81,18 @@
 
           {{"meeting/button-share"}}
 
+          {{#if logEnabled}}
+              <button class="big circular ui icon button black tooltipped"
+                      data-content="Send us feedback"
+                      data-variation="inverted"
+                {{action "displayFeedbackModal"}}
+              >
+                  <i class="material-icons">
+                      bug_report
+                  </i>
+              </button>
+          {{/if}}
+
         </div>
     </div>
 

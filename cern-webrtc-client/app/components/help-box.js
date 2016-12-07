@@ -13,8 +13,8 @@ export default Ember.Component.extend({
   },
   actions: {
     goToLink: function (anchor) {
-      this.get('logger').debug("#system-requirements");
-      this.get('logger').debug(Ember.$("#system-requirements").offset());
+      console.debug("#system-requirements");
+      console.debug(Ember.$("#system-requirements").offset());
       Ember.$('body').scrollTop(Ember.$(anchor).offset().top);
     }
   }

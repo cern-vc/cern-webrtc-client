@@ -9,8 +9,8 @@ export default Ember.Component.extend({
    */
   monitorConnectionFault: function () {
     if (this.get('connectionFault') !== '') {
-      this.get('logger').debug('monitorConnectionFault: connectionFaultMessage');
-      this.get('logger').debug(this.get('connectionFaultMessage'));
+      console.debug('monitorConnectionFault: connectionFaultMessage');
+      console.debug(this.get('connectionFaultMessage'));
       this.sendAction('redirectToIndex', this.get('connectionFaultMessage'));
     }
   }.observes('connectionFault')

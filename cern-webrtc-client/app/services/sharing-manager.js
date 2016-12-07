@@ -10,7 +10,7 @@ export default Ember.Service.extend({
   shareUpdateEvent: function (event, shares) {
     var self = this;
     Ember.run(function () {
-      self.get('logger').debug('shareUpdateEvent::done' + event);
+      console.debug('shareUpdateEvent::done' + event);
       self.set('transformedShares', []);
       var i;
       for (i = 0; i < shares.numApp; i++) {

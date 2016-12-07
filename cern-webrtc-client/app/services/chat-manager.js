@@ -40,14 +40,14 @@ export default Ember.Service.extend({
       mainChat.get('messages').addObject(message);
 
       if (self.get('currentActiveChat').get('id') !== mainChat.get('id')) {
-        self.get('logger').debug("Setting unreadMessages to true");
+        console.debug("Setting unreadMessages to true");
         mainChat.set('hasUnreadMessages', true);
         self.set("hasUnreadMessages", true);
       }
     });
 
     if (!document.hasFocus()) {
-      self.get('logger').debug("Document doesn't have focus");
+      console.debug("Document doesn't have focus");
       var notificationTitle = messageReceived.displayName;
       var notificationBody = strippedMessage.length < 100 ? strippedMessage : strippedMessage.slice(97) + '...';
       this.get('notification-manager').sendDesktopNotification(notificationBody, notificationTitle);
@@ -83,7 +83,7 @@ export default Ember.Service.extend({
    */
   //todo make it use promise chain
   handlePrivateChatUpdateDone(messageReceived, currentMeetingKey) {
-    this.get('logger').debug('handlePrivateChatUpdateDone');
+    console.debug('handlePrivateChatUpdateDone');
     var message = messageReceived.message || '';
     var strippedMessage = messageReceived.message.replace(/<(?:.|)*?>/gm, '');
     var uri = messageReceived.uri || '';
@@ -148,7 +148,7 @@ export default Ember.Service.extend({
     });
 
     if (!document.hasFocus()) {
-      this.get('logger').debug("Document doesn't have focus");
+      console.debug("Document doesn't have focus");
       var notificationTitle = messageReceived.displayName;
       var notificationBody = strippedMessage.length < 100 ? strippedMessage : strippedMessage.slice(97) + '...';
       this.get('notification-manager').sendDesktopNotification(notificationBody, notificationTitle);
@@ -164,7 +164,7 @@ export default Ember.Service.extend({
    * Find (or create) chat by participant and set is as an active chat
    */
   activatePrivateChatByParticipant(participant, currentMeetingKey) {
-    this.get('logger').debug('activatePrivateChatByParticipant');
+    console.debug('activatePrivateChatByParticipant');
     var self = this;
     var participantChat = null;
     this.store.find('meeting', currentMeetingKey).then(function (meeting) {
@@ -224,12 +224,12 @@ export default Ember.Service.extend({
 
   disablePrivateChat(participantUri){
     let self = this;
-    this.get('logger').debug("Disabling chats");
+    console.debug("Disabling chats");
     this.store.findAll('private-chat').then(function (chats) {
-      self.get('logger').debug("Disabling chats: " + chats.get("length"));
+      console.debug("Disabling chats: " + chats.get("length"));
       chats.forEach(function (chat) {
         if (chat.get('uri') === participantUri) {
-          self.get('logger').debug("Disabling: " + participantUri);
+          console.debug("Disabling: " + participantUri);
           chat.set('isDisabled', true);
         }
       });

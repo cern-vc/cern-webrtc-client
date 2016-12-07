@@ -12,7 +12,7 @@ export default Ember.Service.extend({
     this._super(...arguments);
 
     if (config.environment === 'test') {
-      this.get('logger').debug("Init client manager in test mode");
+      console.debug("Init client manager in test mode");
       // this.set('plugin', true);
       this.set('client', Ember.inject.service('mockup-client'));
     }

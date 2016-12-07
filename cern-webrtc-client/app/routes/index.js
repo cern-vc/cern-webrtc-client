@@ -18,7 +18,6 @@ export default TrackedRoute.extend({
     }
   }),
 
-
   /**
    * Initializes the application
    */
@@ -27,7 +26,6 @@ export default TrackedRoute.extend({
     if (config.environment === "test") {
       this.get('plugin-manager').vidyoPluginLoad();
     } else {
-
       if (!this.get('configuration-manager').get("alreadyLoaded")) {
         Ember.run.schedule("afterRender", this, function () {
           Ember.$(document).ready(function () {
@@ -44,12 +42,12 @@ export default TrackedRoute.extend({
 
   actions: {
     redirectToMeeting (currentMeeting) {
-      this.get('logger').debug("index route redirectToMeeting");
+      console.debug("index route redirectToMeeting");
       this.transitionTo('meeting', currentMeeting);
     },
     didTransition() {
       this._super(...arguments);
-      this.get('logger').debug('index: didTransition');
+      console.debug('index: didTransition');
     },
     /**
      * Takes the user to the Vidyoportal URL. If there is a key on the query, it is added to the portal URL.

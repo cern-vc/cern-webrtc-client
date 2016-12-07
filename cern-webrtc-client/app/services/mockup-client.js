@@ -52,11 +52,11 @@ export default Ember.Service.extend({
   },
 
   start: function (config) {
-    this.get('logger').debug("Vidyo Test Client sendRequest");
+    console.debug("Vidyo Test Client sendRequest");
     var retVal = true;
     this.setConfig(config);
     if (!this.get('sessionManager')) {
-      this.get('logger').debug("start() invoked without sessionManager!");
+      console.debug("start() invoked without sessionManager!");
       return false;
     }
 
@@ -70,10 +70,10 @@ export default Ember.Service.extend({
   setOutEventCallbackObject: function (outEventCallbackObjectArg) {
     var self = this;
     Ember.run(function () {
-      this.get('logger').debug("VidyoClient: setOuEventCallbackObject");
-      this.get('logger').debug(outEventCallbackObjectArg);
+      console.debug("VidyoClient: setOuEventCallbackObject");
+      console.debug(outEventCallbackObjectArg);
       self.set('outEventCallbackObject', outEventCallbackObjectArg);
-      this.get('logger').debug(self.get('outEventCallbackObject'));
+      console.debug(self.get('outEventCallbackObject'));
     });
   },
 
@@ -143,8 +143,8 @@ export default Ember.Service.extend({
 
   sendEvent(event){
     var self = this;
-    this.get('logger').debug("Vidyo Client: sendEvent");
-    this.get('logger').debug(event);
+    console.debug("Vidyo Client: sendEvent");
+    console.debug(event);
     Ember.run.later(function () {
       if (event.type === "PrivateInEventVcsoapGuestLink") {
         self.dispatchOutEvent({'type': 'OutEventConferenceActive'});
@@ -155,20 +155,20 @@ export default Ember.Service.extend({
       }
 
       if (event.type === "InEventMuteAudioIn") {
-        self.get('logger').debug("InEventMuteAudioIn HERE");
-        self.get('logger').debug(event);
+        console.debug("InEventMuteAudioIn HERE");
+        console.debug(event);
         self.dispatchOutEvent({'type': 'OutEventMutedAudioIn', 'isMuted': event.willMute});
       }
 
       if (event.type === "InEventMuteVideo") {
-        self.get('logger').debug("InEventMuteVideo HERE");
-        self.get('logger').debug(event);
+        console.debug("InEventMuteVideo HERE");
+        console.debug(event);
         self.dispatchOutEvent({'type': 'OutEventMutedVideo', 'isMuted': event.willMute});
       }
 
       if (event.type === "InEventMuteAudioOut") {
-        self.get('logger').debug("InEventMuteAudioIn HERE");
-        self.get('logger').debug(event);
+        console.debug("InEventMuteAudioIn HERE");
+        console.debug(event);
         self.dispatchOutEvent({'type': 'OutEventMutedAudioOut', 'isMuted': event.willMute});
       }
 
@@ -177,8 +177,8 @@ export default Ember.Service.extend({
     return true;
   },
   sendRequest(request){
-    this.get('logger').debug("request");
-    this.get('logger').debug(request);
+    console.debug("request");
+    console.debug(request);
 
     switch (request) {
       case("RequestGetCurrentSessionDisplayInfo"):
@@ -189,13 +189,13 @@ export default Ember.Service.extend({
   },
 
   test(){
-    this.get('logger').debug("Mockup client loaded");
+    console.debug("Mockup client loaded");
   },
   dispatchOutEvent: function (event) {
-    this.get('logger').debug("VidyoClient dispatching: " + event);
+    console.debug("VidyoClient dispatching: " + event);
 
     if (event.type === 'OutEventConferenceActive') {
-      this.get('logger').debug("OutEventConferenceActive");
+      console.debug("OutEventConferenceActive");
       this.get('plugin-manager').meetingActiveCallback(event);
     }
 

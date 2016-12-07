@@ -7,7 +7,7 @@ export default TrackedRoute.extend({
   currentRouteName: 'meeting',
   actions: {
     redirectToIndex(){
-      this.get('logger').debug("Route Meeting: redirectToIndex");
+      console.debug("Route Meeting: redirectToIndex");
       this.transitionTo('index');
     }
   },

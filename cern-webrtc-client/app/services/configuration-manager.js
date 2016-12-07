@@ -16,6 +16,7 @@ export default Ember.Service.extend({
   numberOfTries: 0,
   timeBetweenTries: 1000, //milliseconds
 
+  queryParamManager: Ember.inject.service('query-param-manager'),
 
   configurationUpdateEventDone: function (event, newConfig) {
 
@@ -56,8 +57,8 @@ export default Ember.Service.extend({
    * @returns {*}
    */
   hasMicrophoneAvailable(){
-    this.get('logger').debug(DetectRTC.hasMicrophone);
-    this.get('logger').debug(DetectRTC.isWebsiteHasMicrophonePermissions);
+    console.debug(DetectRTC.hasMicrophone);
+    console.debug(DetectRTC.isWebsiteHasMicrophonePermissions);
     if (DetectRTC.hasMicrophone && DetectRTC.isWebsiteHasMicrophonePermissions) {
       this.set("microphoneAvailable", true);
     } else {
@@ -76,7 +77,7 @@ export default Ember.Service.extend({
       this.verifyServerIsReachable(scheme, config.session_manager, "/zincadmin/service/getinstance.htm").then(function (data) {
 
         if (data.errorMessage === 'NotAvailable') {
-          self.get('logger').debug("verifyServerIsReachable: Server is not available");
+          console.debug("verifyServerIsReachable: Server is not available");
           self.set("serverReachable", false);
         } else {
           self.set("serverReachable", true);
@@ -103,7 +104,7 @@ export default Ember.Service.extend({
       "browser_name": DetectRTC.browser.name,
       "browser_version": DetectRTC.browser.version
     });
-    self.get('logger').debug(browserData);
+    console.debug(browserData);
 
     return Ember.$.ajax({
       url: config.backend_server_url + "/api/v1.0/browser/",
@@ -112,8 +113,8 @@ export default Ember.Service.extend({
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       error: function (error) {
-        self.get('logger').debug("DetectRTC Error");
-        self.get('logger').debug(error);
+        console.debug("DetectRTC Error");
+        console.debug(error);
       }
     });
   },
@@ -126,8 +127,8 @@ export default Ember.Service.extend({
         dataType: "json",
         timeout: 1000,
         success: function (response) {
-          self.get('logger').debug("response");
-          self.get('logger').debug(response);
+          console.debug("response");
+          console.debug(response);
           resolve(response);
         },
         error: function (reason) {
@@ -161,7 +162,7 @@ export default Ember.Service.extend({
         } : null);
 
         mediaDevices.getUserMedia(constraints).then(function (stream) {
-          self.get('logger').debug(stream);
+          console.debug(stream);
           DetectRTC.load(function () {
             if (self.hasMicrophoneAvailable()) {
               self.isBrowserSupported(self).then(function (data) {
@@ -182,7 +183,7 @@ export default Ember.Service.extend({
           });
 
         }).catch(function (e) {
-          self.get('logger').error(e);
+          console.error(e);
           self.set("microphoneAvailable", false);
         });
 

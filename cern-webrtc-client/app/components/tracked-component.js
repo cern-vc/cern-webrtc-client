@@ -12,7 +12,7 @@ export default Ember.Component.extend({
     Ember.run.scheduleOnce('afterRender', this, () => {
       const zone = zoneParam || 'undefined_zone';
       const element = elementParam || 'undefined_element';
-      self.get('logger').debug(zone, element);
+      console.debug(zone, element);
       Ember.get(this, 'metrics').trackEvent({zone, element});
     });
   },

@@ -16,7 +16,7 @@ export default TrackedComponent.extend({
     var self = this;
     Ember.run.later(function () {
       self.scrollDownMessageList();
-      self.get('logger').debug("Message received");
+      console.debug("Message received");
     }, 50);
   }.observes('numberOfMessages'),
 
@@ -33,7 +33,7 @@ export default TrackedComponent.extend({
   scrollDownMessageList(){
     var messagesList = Ember.$('#messages-list-scrollable');
     var height = messagesList[0].scrollHeight;
-    this.get('logger').debug("Scrolling: " + height);
+    console.debug("Scrolling: " + height);
     messagesList.scrollTop(height);
     messagesList.animate({scrollTop: messagesList.prop("scrollHeight")}, 300);
   },
@@ -44,13 +44,13 @@ export default TrackedComponent.extend({
      */
     showHideChat(){
       var isChatVisible = Ember.$('.segment.chat').transition('is visible');
-      this.get('logger').debug(isChatVisible);
+      console.debug(isChatVisible);
       if (isChatVisible) {
-        this.get('logger').debug("visible");
+        console.debug("visible");
         Ember.$("#hideSidebarButton i").removeClass("right");
         Ember.$("#hideSidebarButton i").addClass("left");
       } else {
-        this.get('logger').debug("no visible");
+        console.debug("no visible");
         Ember.$("#hideSidebarButton i").removeClass("left");
         Ember.$("#hideSidebarButton i").addClass("right");
       }
@@ -97,7 +97,7 @@ export default TrackedComponent.extend({
       if (message.length > 0 && participant) {
         if (!participant.get('uri')) {
           //todo
-          this.get('logger').error('user has no URI address');
+          console.error('user has no URI address');
           return;
         }
         params = {
@@ -120,7 +120,7 @@ export default TrackedComponent.extend({
      * @param chat Chat to set as active
      */
     setChatAsActiveChat(chat) {
-      this.get('logger').debug("Set active chat: " + chat.get("name"));
+      console.debug("Set active chat: " + chat.get("name"));
       chat.set('isVisible', true);
       chat.set('hasUnreadMessages', false);
       this.set('hasUnreadMessages', false);
@@ -133,7 +133,7 @@ export default TrackedComponent.extend({
      */
 
     closeChat(chat) {
-      this.get('logger').debug("Closing chat: " + chat.get("name"));
+      console.debug("Closing chat: " + chat.get("name"));
       chat.set('isVisible', false);
       this.get('chat-manager').setCurrentActiveChat(this.get('meeting').get('mainChat'));
     }

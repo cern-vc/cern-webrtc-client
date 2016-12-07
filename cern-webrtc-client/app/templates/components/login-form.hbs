@@ -1,6 +1,13 @@
 {{#if serverAvailable}}
-    <button class="right floated circular ui icon button {{if serverAvailable '' 'disabled'}}" {{action "displayConfigurationModal"}}>
-        <i class="icon settings"></i>
+    <button class="right floated circular ui icon button {{if serverAvailable '' 'disabled'}}" {{action "displayConfigurationModal"}}
+            title="Configuration">
+        <i class="ui icon settings"></i>
+    </button>
+{{/if}}
+
+{{#if logEnabled}}
+    <button class="right floated circular ui icon button" {{action "displayFeedbackModal"}} title="Send us feedback">
+        <i class="ui icon bug"></i>
     </button>
 {{/if}}
 

@@ -20,8 +20,8 @@ export default Ember.Service.extend({
     var self = this;
     Ember.run(function () {
       self.set("sessionInfo", newSessionInfo);
-      self.get('logger').debug("self.get('currentMeetingKey')");
-      self.get('logger').debug(self.get('currentMeetingKey'));
+      console.debug("self.get('currentMeetingKey')");
+      console.debug(self.get('currentMeetingKey'));
       self.store.find('meeting', self.get('currentMeetingKey')).then(function (currentMeeting) {
         currentMeeting.set('name', newSessionInfo.sessionDisplayText);
         currentMeeting.save();
@@ -76,26 +76,26 @@ export default Ember.Service.extend({
     var self = this;
     self.set('currentMeetingKey', meetingKey);
 
-    self.get('logger').debug("loadCurrentMeeting");
+    console.debug("loadCurrentMeeting");
     var meeting = this.store.find('meeting', meetingKey)
       .then(function (meeting) {
-        self.get('logger').debug("Meeting WAS found");
+        console.debug("Meeting WAS found");
         self.get('chat-manager').setCurrentActiveChat(meeting.get('mainChat'));
-        self.get('logger').debug(self.get('chat-manager').get("currentActiveChat"));
-        self.get('logger').debug("mainChat is: ");
-        self.get('logger').debug(meeting.get('mainChat'));
+        console.debug(self.get('chat-manager').get("currentActiveChat"));
+        console.debug("mainChat is: ");
+        console.debug(meeting.get('mainChat'));
         return meeting;
       }, function (error) {
-        self.get('logger').debug("Meeting was NOT found: " + error);
+        console.debug("Meeting was NOT found: " + error);
         return self.createNewMeeting(meetingKey);
       });
-    self.get('logger').debug("Returning meeting");
+    console.debug("Returning meeting");
     return meeting;
   },
 
   createNewMeeting(meetingKey){
     var self = this;
-    this.get('logger').debug("Creating new meeting");
+    console.debug("Creating new meeting");
     var meeting = this.store.createRecord('meeting', {
       name: 'Meeting ' + meetingKey,
       id: meetingKey,
@@ -103,17 +103,17 @@ export default Ember.Service.extend({
     });
     meeting.save();
 
-    self.get('logger').debug("Creating new main chat");
+    console.debug("Creating new main chat");
     var mainChat = this.store.createRecord('main-chat', {
       name: 'Meeting Chat ' + meeting.id,
       meeting: meeting
     });
     mainChat.save();
-    self.get('logger').debug("Setting up active chat");
+    console.debug("Setting up active chat");
     self.get('chat-manager').setCurrentActiveChat(meeting.get('mainChat'));
-    self.get('logger').debug(this.get('chat-manager').get("currentActiveChat"));
-    self.get('logger').debug("mainChat is: ");
-    self.get('logger').debug(meeting.get('mainChat'));
+    console.debug(this.get('chat-manager').get("currentActiveChat"));
+    console.debug("mainChat is: ");
+    console.debug(meeting.get('mainChat'));
 
     return meeting;
   },

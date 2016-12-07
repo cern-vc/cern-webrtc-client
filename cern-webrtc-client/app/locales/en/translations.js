@@ -105,8 +105,16 @@ export default {
       'send': 'Send'
     }
   },
-  'participant_list':{
+  'participant_list': {
     'participants': 'Participants',
     'participant': 'Participant'
+  },
+  'feedback_box': {
+    'button': {
+      'download': 'Download log',
+      'clear_log': 'Clear log'
+    },
+    'send_us_feedback_message': 'This is the application\'s log. Please, download it and attach it to your ticket' +
+    ' if you are experiencing issues.'
   }
 };

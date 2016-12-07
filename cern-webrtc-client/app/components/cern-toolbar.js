@@ -12,7 +12,7 @@ export default Ember.Component.extend({
    * Authenticates the user using cern-oauth2 and token (against the backend with the retrieved code from cern oauth)
    */
   authenticateOnModal(){
-    this.get('logger').debug("open login modal");
+    console.debug("open login modal");
     var self = this;
     this.set('modalLoginIsOpen', true);
     this.set('signingIn', true);
