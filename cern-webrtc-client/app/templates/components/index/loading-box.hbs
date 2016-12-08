@@ -1,0 +1,118 @@
+<div class="ui active dimmer">
+  {{#if logEnabled}}
+      <button class="right floated circular ui yellow icon button" {{action "displayFeedbackModal"}} title="Send us feedback">
+          <i class="ui icon bug"></i>
+      </button>
+  {{/if}}
+    <div class="app-loading">
+        <div class="ui container">
+            <div class="ui inverted segment">
+                <p><img src="/images/cern-logo-white-100.png" alt="CERN Logo"/></p>
+                <div class="loading-steps">
+                <p>
+                  {{#if (is-equal webRTCSupported false) }}
+                      <div class="ui red horizontal label">
+                          ERROR
+                      </div>
+                  {{/if}}
+                  {{#if webRTCSupported}}
+                      <div class="ui green horizontal label">
+                          OK
+                      </div>
+                  {{/if}}
+                  {{#if (is-equal webRTCSupported null)}}
+                      <div class="ui active inline loader"></div>
+                  {{/if}}
+                    WebRTC supported
+                    </p>
+
+                <p>
+                  {{#if (is-equal microphoneAvailable false) }}
+                      <div class="ui red horizontal label">
+                          ERROR
+                      </div>
+                  {{/if}}
+                  {{#if microphoneAvailable}}
+                      <div class="ui green horizontal label">
+                          OK
+                      </div>
+                  {{/if}}
+                  {{#if (is-equal microphoneAvailable null)}}
+                      <div class="ui active inline loader"></div>
+                  {{/if}}
+                    Microphone detected on the system
+                  {{#if (is-equal microphoneAvailable false) }}
+                      . Please, allow access to the microphone to continue.
+                      <button class="ui mini primary button" {{action "verifyConfiguration"}}>try again</button>
+                  {{/if}}
+                    </p>
+
+                <p>
+                  {{#if (is-equal browserSupported false) }}
+                      <div class="ui red horizontal label">
+                          ERROR
+                      </div>
+                  {{/if}}
+                  {{#if browserSupported}}
+                      <div class="ui green horizontal label">
+                          OK
+                      </div>
+                  {{/if}}
+                  {{#if (is-equal browserSupported null)}}
+                      <div class="ui active inline loader"></div>
+                  {{/if}}
+                    Browser supported
+                    </p>
+
+                <p>
+                  {{#if (is-equal serverReachable false)}}
+                      <div class="ui red horizontal label">
+                          ERROR
+                      </div>
+                  {{/if}}
+                  {{#if serverReachable}}
+                      <div class="ui green horizontal label">
+                          OK
+                      </div>
+                  {{/if}}
+                  {{#if (is-equal serverReachable null)}}
+                      <div class="ui active inline loader"></div>
+                  {{/if}}
+                    Session manager available
+                    </p>
+                </div>
+              {{#if errorsWhileLoading}}
+                  <div class="actions">
+                      <div class="two fluid ui inverted buttons">
+                          <div class="ui basic inverted button" {{action "goToVidyoPortal"}}>
+                              Go
+                              to Vidyo Portal
+                          </div>
+                          <div class="ui green basic inverted button" {{action "goToDownloads"}}>
+                              Use
+                              another Vidyo client
+                          </div>
+                      </div>
+                  </div>
+              {{/if}}
+
+              {{#if microphoneAvailable}}
+                {{#if browserSupported}}
+                  {{#if webRTCSupported}}
+                    {{#if serverReachable}}
+                        <p class="signup">Everything seems fine. Loading the Vidyo plugin...</p>
+                    {{/if}}
+                  {{/if}}
+                {{/if}}
+              {{/if}}
+              {{#if errorsWhileLoading}}
+                  <p class="loading-finished">There were some errors while loading. The WebRTC Client cannot be started, please
+                      select one of
+                      the options
+                      below to continue.</p>
+              {{/if}}
+
+            </div>
+        </div>
+    </div>
+</div>

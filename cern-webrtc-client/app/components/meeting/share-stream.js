@@ -7,7 +7,7 @@ export default Ember.Component.extend({
 
   actions:{
     detachShare(){
-      this.get('logger').debug("Detach");
+      console.debug("Detach");
 
       var self = this;
       var elem = document.getElementById("shareVideo0");

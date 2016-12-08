@@ -22,14 +22,14 @@ moduleForAcceptance('Acceptance | check audio mute', {
 });
 
 test('checking microphone mute', function (assert) {
-  visit('/');
+  visit('/join-meeting');
 
   andThen(function () {
-    assert.equal(currentURL(), '/');
+    assert.equal(currentURL(), '/join-meeting');
   });
 
   andThen(function () {
-    assert.equal(currentURL(), '/');
+    assert.equal(currentURL(), '/join-meeting');
     let key = "BlaeOhnXvXWfN7HG53I2aKTbqeY";
     let username = usernameGenerator.generateRandomUsername();
 

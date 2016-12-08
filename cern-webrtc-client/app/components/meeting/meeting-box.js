@@ -1,6 +1,6 @@
 import Ember from 'ember';
-import TrackedComponent from './tracked-component';
-import config from '../config/environment';
+import TrackedComponent from '../tracked-component';
+import config from '../../config/environment';
 
 export default TrackedComponent.extend({
   isConnected: Ember.computed.alias('connection-manager.isConnected'),
@@ -46,7 +46,7 @@ export default TrackedComponent.extend({
    */
   expectDisconnectionFromServer: function () {
     if (!this.get('connection-manager').get('expectDisconnect')) {
-      this.clearDataAndRedirectToIndex();
+      this.clearDataAndRedirectToJoinMeeting();
     }
   }.observes('isDisconnectedFromServer'),
 
@@ -57,14 +57,11 @@ export default TrackedComponent.extend({
     if (!thisVideoContainerParam) {
       thisVideoContainer = this.get("currentClickedVideo");
       this.set("currentClickedVideo", null);
-      console.debug(thisVideoContainer);
     } else {
       thisVideoContainer = thisVideoContainerParam;
     }
 
     if (thisVideoContainer) {
-      console.debug("thisVideoContainer");
-      console.debug(thisVideoContainer);
       var mainStreamSrc;
 
       var mainVideoContainer = Ember.$('#mainVideoContainer');
@@ -78,13 +75,6 @@ export default TrackedComponent.extend({
 
       mainStreamSrc = mainVideo.srcObject;
 
-
-      console.debug("==== Main Video ====");
-      console.debug("Main video container ID: " + mainVideoContainerId);
-      console.debug("Main video ID: " + mainVideoId);
-      console.debug("Main label ID: " + mainLabelId);
-      console.debug(mainStreamSrc);
-
       let thisVideoContainerId = thisVideoContainer.attr('id');
       var clickedLabel = thisVideoContainer.find('.participant-title:first');
       var thisLabelId = clickedLabel.attr('id');
@@ -96,17 +86,7 @@ export default TrackedComponent.extend({
 
       thisStreamSrc = thisVideo.srcObject;
 
-      console.debug("==== thisVideo ====");
-      console.debug("This video container ID: " + thisVideoContainerId);
-      console.debug("This video ID: " + thisVideoId);
-      console.debug("This label ID: " + thisLabelId);
-      console.debug(thisStreamSrc);
-
-
       if (thisStreamSrc !== undefined && mainStreamSrc !== undefined) {
-        console.debug("This stream and mainStream defined");
-        console.debug(mainVideo);
-
 
         mainVideo.srcObject = thisStreamSrc;
         thisVideo.srcObject = mainStreamSrc;
@@ -365,17 +345,17 @@ export default TrackedComponent.extend({
     if (this.get('shareWindow')) {
       this.get('shareWindow').close();
     }
-    this.clearDataAndRedirectToIndex();
+    this.clearDataAndRedirectToJoinMeeting();
     this.get('sharing-manager').setDefaultValues();
   },
 
   /**
    * The meeting data can be removed here and then it will redirect to the index by sending an action to its parent.
    */
-  clearDataAndRedirectToIndex() {
-    console.debug('clearDataAndRedirectToIndex');
+  clearDataAndRedirectToJoinMeeting() {
+    console.debug('clearDataAndRedirectToJoinMeeting');
     Ember.$('.tooltipped').popup("hide all");
-    this.sendAction('redirectToIndex');
+    this.sendAction('redirectToJoinMeeting');
   }
 
 });

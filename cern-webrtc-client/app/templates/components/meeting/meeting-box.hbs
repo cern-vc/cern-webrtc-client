@@ -3,7 +3,7 @@
     <div id="toolbox-wrapper"
          class="top-video-layer transitioning {{if isToolboxVisible '' 'transitioning-invisible'}}">
 
-      {{participant-list meeting=meeting}}
+      {{"meeting/participant-list" meeting=meeting}}
 
         <div class="center toolbox-centered">
 
@@ -82,7 +82,7 @@
           {{"meeting/button-share"}}
 
           {{#if logEnabled}}
-              <button class="big circular ui icon button black tooltipped"
+              <button class="big circular ui yellow icon button black tooltipped"
                       data-content="Send us feedback"
                       data-variation="inverted"
                 {{action "displayFeedbackModal"}}
@@ -122,7 +122,7 @@
       {{"meeting/share-stream"}}
     </div>
 
-  {{chat-box meeting=meeting}}
+  {{"meeting/chat-box" meeting=meeting}}
 
 </div>
 

@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import TrackedComponent from './tracked-component';
+import TrackedComponent from '../tracked-component';
 
 export default TrackedComponent.extend({
   isConnected: Ember.computed.alias('connection-manager.isConnected'),

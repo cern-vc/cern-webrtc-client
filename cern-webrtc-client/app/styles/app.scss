@@ -741,3 +741,32 @@ nav.top-nav a.page-title {
   text-align: left;
 }
 
+
+.app-loading{
+  height: 100%;
+  width: 100%;
+}
+
+.app-loading .ui.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin: 0 auto;
+  width: 400px;
+}
+
+
+.app-loading .ui.container .ui.inverted.segment{
+  background: transparent;
+}
+
+p.loading-finished {
+  padding-top: 25px;
+  color: #999999;
+  text-align: center;
+}
+
+.loading-steps{
+  text-align: left;
+}

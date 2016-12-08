@@ -6,9 +6,9 @@ export default TrackedRoute.extend({
    */
   currentRouteName: 'meeting',
   actions: {
-    redirectToIndex(){
-      console.debug("Route Meeting: redirectToIndex");
-      this.transitionTo('index');
+    redirectToJoinMeeting(){
+      console.debug("Route Meeting: redirectToJoinMeeting");
+      this.transitionTo('join-meeting');
     }
   },
   model: function (params) {

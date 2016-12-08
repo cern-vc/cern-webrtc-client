@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('meeting', { path: '/meetings/:id' });
   this.route('terms-of-use');
   this.route('help');
+  this.route('join-meeting');
 });
 
 export default Router;

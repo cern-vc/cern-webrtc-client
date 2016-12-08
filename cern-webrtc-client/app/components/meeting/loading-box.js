@@ -11,7 +11,7 @@ export default Ember.Component.extend({
     if (this.get('connectionFault') !== '') {
       console.debug('monitorConnectionFault: connectionFaultMessage');
       console.debug(this.get('connectionFaultMessage'));
-      this.sendAction('redirectToIndex', this.get('connectionFaultMessage'));
+      this.sendAction('redirectToJoinMeeting', this.get('connectionFaultMessage'));
     }
   }.observes('connectionFault')
 });

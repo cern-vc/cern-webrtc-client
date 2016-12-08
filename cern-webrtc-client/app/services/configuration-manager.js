@@ -57,12 +57,12 @@ export default Ember.Service.extend({
    * @returns {*}
    */
   hasMicrophoneAvailable(){
-    console.debug(DetectRTC.hasMicrophone);
-    console.debug(DetectRTC.isWebsiteHasMicrophonePermissions);
     if (DetectRTC.hasMicrophone && DetectRTC.isWebsiteHasMicrophonePermissions) {
       this.set("microphoneAvailable", true);
+      console.log("Microphone Available: OK");
     } else {
       this.set("microphoneAvailable", false);
+      console.log("Microphone Available: NO");
     }
     return (DetectRTC.hasMicrophone && DetectRTC.isWebsiteHasMicrophonePermissions);
   },
@@ -77,9 +77,10 @@ export default Ember.Service.extend({
       this.verifyServerIsReachable(scheme, config.session_manager, "/zincadmin/service/getinstance.htm").then(function (data) {
 
         if (data.errorMessage === 'NotAvailable') {
-          console.debug("verifyServerIsReachable: Server is not available");
+          console.log("Server Reachable: NO");
           self.set("serverReachable", false);
         } else {
+          console.log("Server Reachable: OK");
           self.set("serverReachable", true);
           self.set("alreadyLoaded", true);
         }
@@ -113,9 +114,10 @@ export default Ember.Service.extend({
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       error: function (error) {
-        console.debug("DetectRTC Error");
+        console.log("Browser Supported: NO");
         console.debug(error);
-      }
+      },
+      timeout: 5000
     });
   },
 
@@ -145,6 +147,7 @@ export default Ember.Service.extend({
     if (!self.get("alreadyLoaded")) {
 
       if (self.isWebRTCSupported()) {
+        console.log("WebRTC Supported: OK");
         self.set("webRTCSupported", true);
         var constraints = {
           audio: true
@@ -167,10 +170,11 @@ export default Ember.Service.extend({
             if (self.hasMicrophoneAvailable()) {
               self.isBrowserSupported(self).then(function (data) {
                 if (data["should_redirect"] === false) {
-                  self.set("browserSupported", true);
+                  console.log("Browser Supported: OK");
                   self.set("browserSupported", true);
                   self.isServerReachable();
                 } else {
+                  console.log("Browser Supported: NO");
                   self.set("browserSupported", false);
                 }
               });
@@ -184,12 +188,14 @@ export default Ember.Service.extend({
 
         }).catch(function (e) {
           console.error(e);
+          console.log("Microphone Available: NO");
           self.set("microphoneAvailable", false);
         });
 
 
       } else {
         self.set("webRTCSupported", false);
+        console.log("WebRTC Supported: NO");
       }
     }
   }
