@@ -34,7 +34,7 @@ test('checking video mute', function (assert) {
     let key = "BlaeOhnXvXWfN7HG53I2aKTbqeY";
     let username = usernameGenerator.generateRandomUsername();
 
-    fillIn("input#roomUrl", "https://vidyoportal.cern.ch/flex.html?roomdirect.html&key=" + key);
+    fillIn("input#roomUrl", "https://vidyoportal.cern.ch/join/" + key);
     // assert.notEqual(username, '');
     fillIn("input#guestName", username);
 
