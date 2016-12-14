@@ -3,12 +3,13 @@
  */
 import Base from 'ember-simple-auth/authenticators/base';
 import Ember from "ember";
+import config from '../config/environment';
 
 export default Base.extend({
   restore: function(credentials) {
     return Ember.$.ajax({
       type: "POST",
-      url: "/backend/api/v1.0/auth/reauth/",
+      url: config.backend_server_url + "api/v1.0/auth/reauth/",
       contentType : 'application/json',
       data: JSON.stringify(credentials)
     });
@@ -16,7 +17,7 @@ export default Base.extend({
   authenticate: function(credentials) {
     return Ember.$.ajax({
       type: "POST",
-      url: "/backend/api/v1.0/auth/login/",
+      url: config.backend_server_url + "api/v1.0/auth/login/",
       contentType : 'application/json',
       data: JSON.stringify(credentials)
     });
