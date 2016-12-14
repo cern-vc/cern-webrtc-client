@@ -30,13 +30,6 @@ export default TrackedRoute.extend({
       }
       this.get('configuration-manager').verifyConfiguration();
     }
-  },
-
-  actions: {
-    redirectToJoinMeeting(){
-      console.debug("Redirecting to join meeting screen...");
-      this.transitionTo('join-meeting');
-    }
   }
 
 });

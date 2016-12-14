@@ -5,9 +5,17 @@ import Ember from 'ember';
  * Also display error messages while connecting.
  */
 export default Ember.Controller.extend({
+  queryParams: ['key', 'pin'],
+  key: '',
+  pin: '',
   actions: {
     verifyConfiguration(){
       this.get('configuration-manager').verifyConfiguration();
+    },
+
+    redirectToJoinMeeting(){
+      console.debug("Redirecting to join meeting screen...");
+      this.transitionToRoute('join-meeting', {queryParams: {key: this.get('key'), pin: this.get('pin')}});
     }
   }
 
