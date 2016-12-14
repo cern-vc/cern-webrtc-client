@@ -1,6 +1,6 @@
 import Ember from 'ember';
-import TrackedComponent from './tracked-component';
-import config from '../config/environment';
+import TrackedComponent from '../tracked-component';
+import config from '../../config/environment';
 
 export default TrackedComponent.extend({
   session: Ember.inject.service('session'),
