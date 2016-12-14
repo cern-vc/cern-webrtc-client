@@ -10,7 +10,8 @@
           <li><a href="!#" {{action 'invalidateSession'}}>{{t "cern_toolbar.logout"}}</a></li>
       {{else}}
           <li>
-              <a href="!#" {{action "openLoginModal"}}>Login</a>
+              {{!--<a href="!#" {{action "openLoginModal"}}>Login</a>--}}
+              {{#link-to "login"}}Login{{/link-to}}
           </li>
       {{/if}}
         <li><a class="cern-directory" href="http://cern.ch/directory"

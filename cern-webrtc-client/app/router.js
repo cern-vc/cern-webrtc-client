@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('terms-of-use');
   this.route('help');
   this.route('join-meeting');
+  this.route('login');
 });
 
 export default Router;

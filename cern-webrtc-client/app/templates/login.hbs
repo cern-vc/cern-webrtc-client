@@ -1,0 +1,36 @@
+{{top-navbar}}
+
+<div class="ui modal login-modal">
+    <i class="close icon"></i>
+    <div class="content">
+      {{#unless loginIsLoading }}
+        {{torii-iframe-placeholder}}
+      {{else}}
+
+          <div class="ui active inverted dimmer">
+              <div class="ui text loader">Loading</div>
+          </div>
+          <p></p>
+      {{/unless}}
+    </div>
+    <div class="actions">
+        <div class="ui cancel button" {{action "closeLoginModal"}}>Cancel
+        </div>
+    </div>
+</div>
+
+<div class="main">
+    <div id="login-form-container" class="ui stackable two column centered grid">
+        <div class="column">
+            <div class="ui center aligned segment">
+                <h1 class="ui header">Login</h1>
+                <p>Login into CERN WebRTC client using your CERN account.</p>
+                <button class="ui blue button" {{action "openLoginModal"}}>Login into CERN</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{bottom-disclaimer}}
+
+{{outlet}}
