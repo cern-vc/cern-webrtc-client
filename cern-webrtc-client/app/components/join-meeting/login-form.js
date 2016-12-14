@@ -18,17 +18,18 @@ export default TrackedComponent.extend({
   maximumGuestNameLength: 40,
   baseVidyoPortalUrl: config.vidyo_portal_url,
   portalUrl: Ember.computed('baseVidyoPortalUrl', function(){
-    return this.get('baseVidyoPortalUrl') + '/flex.html?roomdirect.html';
+    return this.get('baseVidyoPortalUrl') + '/join/';
+    //https://vidyoportal.cern.ch/join/hsjT7YiPtmp7
   }),
   vidyoCafeUrl: Ember.computed('portalUrl', function(){
-    return this.get('portalUrl') + '/flex.html?roomdirect.html&key=hsjT7YiPtmp7';
+    return this.get('portalUrl') + 'hsjT7YiPtmp7';
   }),
 
   isDevelopmentEnvironment: config.environment === 'development' || config.environment === 'qa',
 
   roomUrl: Ember.computed('key', 'portalUrl', function () {
     if (this.get('key')) {
-      return this.get('portalUrl') + '&key=' + this.get('key');
+      return this.get('portalUrl') + this.get('key');
     } else {
       return "";
     }
@@ -60,7 +61,10 @@ export default TrackedComponent.extend({
               type: 'url'
             },
             {
-              type: 'contains[&key=]'
+              type: 'contains[/join/]'
+            },
+            {
+              type: 'contains['+self.get('baseVidyoPortalUrl')+']'
             }
           ]
         },
@@ -100,7 +104,8 @@ export default TrackedComponent.extend({
   },
 
   isRoomKeyFromInputMissing() {
-    return this.get('roomUrl').indexOf('&key') === -1;
+    let roomKey = this.get('roomUrl').substr(this.get('roomUrl').lastIndexOf('/') + 1);
+    return roomKey.length === 0;
   },
 
   /**
@@ -131,7 +136,7 @@ export default TrackedComponent.extend({
    */
   getRoomKey() {
     if (!this.isRoomKeyFromInputMissing()) {
-      return this.getParameterByName('key', this.get('roomUrl'));
+      return this.get('roomUrl').substr(this.get('roomUrl').lastIndexOf('/') + 1);
     } else if (!this.isRoomKeyFromURLMissing()) {
       return this.get('key');
     }
@@ -144,7 +149,7 @@ export default TrackedComponent.extend({
    */
   getInEventLoginParams() {
     return {
-      fullUri: this.get('portalUrl') + '&key=' + this.getRoomKey(),
+      fullUri: this.get('portalUrl') + '/join/' + this.getRoomKey(),
       portalUri: this.get('baseVidyoPortalUrl'),
       roomKey: this.getRoomKey(),
       guestName: this.get('guestName'),
