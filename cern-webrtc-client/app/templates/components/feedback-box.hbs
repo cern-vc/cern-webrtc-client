@@ -1,7 +1,7 @@
 <div class="ui modal modal-feedback">
-    <div class="header">Send us feedback</div>
+    <div class="header">{{t 'feedback-box.send_us_feedback'}}</div>
     <div class="content">
-        <p>{{t "feedback_box.send_us_feedback_message"}}</p>
+        <p>{{t "feedback-box.send_us_feedback_message"}}</p>
         <div class="ui one column grid">
             <div class="column">
                 <form class="ui form">
@@ -17,8 +17,8 @@
 
     </div>
     <div class="actions">
-        <div class="ui green button" {{action "download"}}>{{t "feedback_box.button.download"}}</div>
-        <div class="ui button" {{action "clearLog"}}>{{t "feedback_box.button.clear_log"}}</div>
+        <div class="ui green button" {{action "download"}}>{{t "feedback-box.button.download"}}</div>
+        <div class="ui button" {{action "clearLog"}}>{{t "feedback-box.button.clear_log"}}</div>
         <div class="ui cancel button">{{t "index.button.close"}}</div>
     </div>
 </div>

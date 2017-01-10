@@ -10,10 +10,10 @@
     </div>
     <div class="right menu">
       {{#if session.isAuthenticated}}
-          <a class="item" {{action "doNothing"}}>{{t "cern_toolbar.logged_in_as"}} {{session.data.authenticated.user_info.username}}</a>
-          <a class="item" href="!#" {{action 'invalidateSession'}}>{{t "cern_toolbar.logout"}}</a>
+          <a class="item" {{action "doNothing"}}>{{t "top-navbar.logged_in_as"}} {{session.data.authenticated.user_info.username}}</a>
+          <a class="item" href="!#" {{action 'invalidateSession'}}>{{t "top-navbar.logout"}}</a>
       {{else}}
-        {{#link-to "login" class="item"}}Login{{/link-to}}
+        {{#link-to "login" class="item"}}{{t "top-navbar.login"}}{{/link-to}}
       {{/if}}
     </div>
 

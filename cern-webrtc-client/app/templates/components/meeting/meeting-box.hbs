@@ -9,7 +9,7 @@
 
             <button id="mute-video-button"
                     class="big circular ui icon button mute-video-button {{if isMutedVideo 'red' 'black'}} tooltipped"
-                    data-content="{{if isMutedVideo (t "meeting_box.unmute_video") (t "meeting_box.mute_video")}}"
+                    data-content="{{if isMutedVideo (t "meeting-box.unmute_video") (t "meeting-box.mute_video")}}"
                     data-variation="inverted" {{action "muteLocalVideo"}}>
 
                 <i class="material-icons">
@@ -19,7 +19,7 @@
 
             <button id="mute-mic-button"
                     class="big circular ui icon button mute-mic-button {{if isMutedMic 'red' 'black'}} tooltipped"
-                    data-content="{{if isMutedMic (t "meeting_box.unmute_mic") (t "meeting_box.mute_mic")}}"
+                    data-content="{{if isMutedMic (t "meeting-box.unmute_mic") (t "meeting-box.mute_mic")}}"
                     data-variation="inverted" {{action "muteLocalMic"}}>
                 <i class="material-icons">
                   {{if isMutedMic 'mic_off' 'mic' }}
@@ -38,7 +38,7 @@
                 <div class="ui one column left aligned grid">
                     <div class="column">
                         <h4 class="header">
-                            Speakers: {{if isMutedSpeaker (t "meeting_box.speaker_muted") (t "meeting_box.speaker_no_muted")}}</h4>
+                            Speakers: {{if isMutedSpeaker (t "meeting-box.speaker_muted") (t "meeting-box.speaker_no_muted")}}</h4>
                         <p>
                             <input type="hidden" name="speaker-value" id="speaker-value" value="{{speakerVolume}}"/>
                         <div class="ui range" id="speaker-range"></div>
@@ -49,21 +49,21 @@
 
             <button id="disconnect-button"
                     class="big circular ui icon button disconnect-button red tooltipped"
-                    data-content="{{t "meeting_box.quit_meeting"}}"
+                    data-content="{{t "meeting-box.quit_meeting"}}"
                     data-variation="inverted" {{action 'disconnect'}}>
                 <i class="material-icons white-text">call_end</i>
             </button>
 
             <button
                     class="big circular ui icon button toggle-view-button black tooltipped"
-                    data-content="{{t "meeting_box.change_pip_mode"}}"
+                    data-content="{{t "meeting-box.change_pip_mode"}}"
                     data-variation="inverted" {{action "clientPreviewModeToggle"}}>
                 <i class="material-icons white-text">picture_in_picture</i>
             </button>
 
             <button
                     class="big circular ui icon button toggle-view-button black tooltipped"
-                    data-content="{{if (is-bigger numPreferredParticipants 0) (t "meeting_box.disable_active_speaker") (t "meeting_box.enable_active_speaker")}}"
+                    data-content="{{if (is-bigger numPreferredParticipants 0) (t "meeting-box.disable_active_speaker") (t "meeting-box.enable_active_speaker")}}"
                     data-variation="inverted" {{action 'togglePreferedView'}}>
                 <i class="material-icons white-text">
                   {{if numPreferredParticipants 'view_compact' 'view_comfy' }}
@@ -73,9 +73,9 @@
             <div class="big circular ui icon top left pointing dropdown button black">
                 <i class="material-icons">settings</i>
                 <div class="menu">
-                    <div class="disabled item">{{t "meeting_box.connected_to"}} {{sessionInfo.sessionDisplayText}}</div>
-                    <div class="item" {{action "openHelpModal"}}>{{t "meeting_box.help"}}</div>
-                    <a class="item" href={{feedbackUrl}} target="_blank">{{t "meeting_box.send_us_feedback"}}</a>
+                    <div class="disabled item">{{t "meeting-box.connected_to"}} {{sessionInfo.sessionDisplayText}}</div>
+                    <div class="item" {{action "openHelpModal"}}>{{t "meeting-box.help"}}</div>
+                    <a class="item" href={{feedbackUrl}} target="_blank">{{t "meeting-box.send_us_feedback"}}</a>
                 </div>
             </div>
 

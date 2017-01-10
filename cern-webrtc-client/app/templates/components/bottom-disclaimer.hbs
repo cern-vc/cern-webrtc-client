@@ -5,8 +5,8 @@
             &copy; 2015-{{currentYear}} CERN (European Organization for Nuclear Research)
         </p>
         <p class="center">
-          {{#link-to "terms-of-use"}}Terms of Use{{/link-to}} - {{#link-to "downloads"}}Downloads{{/link-to}}
-            - {{#link-to "help"}}Help{{/link-to}} -
+          {{#link-to "terms-of-use"}}{{t 'botton-disclaimer.terms_of_use' }}{{/link-to}} - {{#link-to "downloads"}}{{t 'botton-disclaimer.downloads' }}{{/link-to}}
+            - {{#link-to "help"}}{{t 'botton-disclaimer.help' }}{{/link-to}} -
 
             <select {{action 'setLocale' on='change'}}>
               {{#each locales as |loc|}}

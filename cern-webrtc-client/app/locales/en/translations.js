@@ -2,28 +2,12 @@
  * Created by renefernandez on 19/02/16.
  */
 export default {
-  'language-select': {
-    'language': {
-      'en': 'English',
-      'es': 'Español'
-    }
+  'botton-disclaimer': {
+    'terms_of_use': 'Terms of use',
+    'downloads': 'Downloads',
+    'help': 'Help'
   },
-  'loading-box':{
-    'send_us_feedback': 'Send us feedback',
-    'error': 'ERROR',
-    'ok': 'OK',
-    'webrtc_supported': 'WebRTC supported',
-    'microphone_detected': 'Microphone detected on the system',
-    'allow_microphone_access': '. Please, allow access to the microphone to continue.',
-    'try_again': 'try again',
-    'browser_supported': 'Browser supported',
-    'session_manager_available': 'Session manager available',
-    'everything_ok': 'Everything seems fine. Loading the Vidyo plugin...',
-    'some_errors': 'There were some errors while loading. The WebRTC Client cannot be started, please select one of the options below to continue.',
-    'use_another_vidyo_client': 'Use another Vidyo client',
-    'go_to_vidyoportal': 'Go to Vidyo Portal'
-  },
-  'cern_toolbar': {
+  'cern-toolbar': {
     'logged_in_as': 'Logged in as:',
     'directory': 'Directory',
     'login': 'Login',
@@ -38,7 +22,8 @@ export default {
       'send': 'Send'
     }
   },
-  'configuration_box': {
+  'configuration-box': {
+    'configuration_title': 'Configuration',
     'select_devices_message': 'Select the devices you want to use on the meeting.',
     'device_configuration': 'Device configuration',
     'notifications_disabled_message': 'Desktop notifications are disabled. You can manage this setting on your browser preferences',
@@ -52,6 +37,15 @@ export default {
       'save': 'Save'
     }
   },
+  'feedback-box': {
+    'send_us_feedback': 'Send us feedback',
+    'send_us_feedback_message': 'This is the application\'s log. Please, download it and attach it to your ticket' +
+    ' if you are experiencing issues.',
+    'button': {
+      'download': 'Download log',
+      'clear_log': 'Clear log'
+    }
+  },
   'index': {
     'error': 'Error',
     'button': {
@@ -62,10 +56,8 @@ export default {
     'configuration': 'Configuration',
     'join': 'Join',
   },
-  'loading_box': {
-    'joining_meeting': 'Joining the meeting...'
-  },
-  'login_form': {
+  'join-meeting': {
+    'join_meeting': 'Join a meeting',
     'field': {
       'room_url': 'Room URL',
       'room_pin': 'Room Pin (if any)',
@@ -74,9 +66,45 @@ export default {
     },
     'button': {
       'join_meeting': 'Join the meeting',
+      'set_test_room': 'Set test room',
+      'set_random_name': 'Set random name'
     }
   },
-  'meeting_box': {
+  'loading_box': {
+    'joining_meeting': 'Joining the meeting...'
+  },
+  'language-select': {
+    'language': {
+      'en': 'English',
+      'es': 'Español'
+    }
+  },
+  'loading-box': {
+    'send_us_feedback': 'Send us feedback',
+    'error': 'ERROR',
+    'ok': 'OK',
+    'webrtc_supported': 'WebRTC supported',
+    'microphone_detected': 'Microphone detected on the system',
+    'allow_microphone_access': '. Please, allow access to the microphone to continue.',
+    'try_again': 'try again',
+    'browser_supported': 'Browser supported',
+    'session_manager_available': 'Session manager available',
+    'everything_ok': 'Everything seems fine. Loading the Vidyo plugin...',
+    'some_errors': 'There were some errors while loading. The WebRTC Client cannot be started, please select one of the options below to continue.',
+    'use_another_vidyo_client': 'Use another Vidyo client',
+    'go_to_vidyoportal': 'Go to Vidyo Portal'
+  },
+  'login':{
+    'login_title': 'Login',
+    'loading': 'Loading',
+    'cancel': 'Cancel',
+    'login_message': 'Login into CERN WebRTC client using your CERN account.',
+    'button': {
+      'login': 'Login into CERN'
+    }
+
+  },
+  'meeting-box': {
     'unmute_video': 'Unmute video',
     'mute_video': 'Mute video',
     'mute_mic': 'Mute mic',
@@ -130,12 +158,9 @@ export default {
     'participants': 'Participants',
     'participant': 'Participant'
   },
-  'feedback_box': {
-    'button': {
-      'download': 'Download log',
-      'clear_log': 'Clear log'
-    },
-    'send_us_feedback_message': 'This is the application\'s log. Please, download it and attach it to your ticket' +
-    ' if you are experiencing issues.'
+  'top-navbar': {
+    'login': 'Login',
+    'logout': 'Logout',
+    'logged_in_as': 'Logged in as: '
   }
 };

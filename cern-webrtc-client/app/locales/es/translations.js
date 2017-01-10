@@ -8,7 +8,7 @@ export default {
       'es': 'Español'
     }
   },
-  'cern_toolbar': {
+  'cern-toolbar': {
     'logged_in_as': 'Registrado como: ',
     'directory': 'Directorio',
     'login': 'Acceder',
@@ -23,7 +23,7 @@ export default {
       'send': 'Enviar'
     }
   },
-  'configuration_box': {
+  'configuration-box': {
     'select_devices_message': 'Elige los dispositivos que quieres utilizar en el meeting.',
     'device_configuration': 'Configuración de dispositivos',
     'notifications_disabled_message': 'Desktop notifications are disabled. You can manage this setting on your browser preferences',
@@ -50,7 +50,7 @@ export default {
   'loading_box': {
     'joining_meeting': 'Unirse al meeting...'
   },
-  'login_form': {
+  'join-meeting': {
     'field': {
       'room_url': 'URL del meeting',
       'room_pin': 'Pin del meeting (si tiene)',
@@ -61,7 +61,7 @@ export default {
       'join_meeting': 'Unirse al meeting',
     }
   },
-  'meeting_box': {
+  'meeting-box': {
     'unmute_video': 'Activar webcam',
     'mute_video': 'Desactivar webcam',
     'mute_mic': 'Silenciar micrófono',
@@ -115,7 +115,7 @@ export default {
     'participants': 'Participantes',
     'participant': 'Participante'
   },
-  'feedback_box': {
+  'feedback-box': {
     'button': {
       'download': 'Descargar log',
       'clear_log': 'Borrar log'
