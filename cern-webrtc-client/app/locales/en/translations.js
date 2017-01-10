@@ -37,6 +37,16 @@ export default {
       'save': 'Save'
     }
   },
+  'downloads':{
+    'downloads_title': 'Downloads',
+    'chrome_title': 'Screen sharing Chrome extension',
+    'page_description': 'If you want to share your screen with other users you must use Chrome or Firefox and install the corresponding extension below:',
+    'after_install_instructions': 'Once installed, you should reload the page so the application will detect the extension.',
+    'other_clients_title': 'Other Vidyo clients',
+    'other_clients_description': 'If your platform or browser are not supported, you can download the native Vidyo app client for your platform using the following links.',
+    'desktop_title': 'Desktop',
+    'desktop_description': 'Download the desktop application from the <a href="https://vidyoportal.cern.ch/" title="CERN Vidyo Portal">CERN Vidyo Portal</a>'
+  },
   'feedback-box': {
     'send_us_feedback': 'Send us feedback',
     'send_us_feedback_message': 'This is the application\'s log. Please, download it and attach it to your ticket' +
