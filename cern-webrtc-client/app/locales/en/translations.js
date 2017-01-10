@@ -2,6 +2,27 @@
  * Created by renefernandez on 19/02/16.
  */
 export default {
+  'language-select': {
+    'language': {
+      'en': 'English',
+      'es': 'Español'
+    }
+  },
+  'loading-box':{
+    'send_us_feedback': 'Send us feedback',
+    'error': 'ERROR',
+    'ok': 'OK',
+    'webrtc_supported': 'WebRTC supported',
+    'microphone_detected': 'Microphone detected on the system',
+    'allow_microphone_access': '. Please, allow access to the microphone to continue.',
+    'try_again': 'try again',
+    'browser_supported': 'Browser supported',
+    'session_manager_available': 'Session manager available',
+    'everything_ok': 'Everything seems fine. Loading the Vidyo plugin...',
+    'some_errors': 'There were some errors while loading. The WebRTC Client cannot be started, please select one of the options below to continue.',
+    'use_another_vidyo_client': 'Use another Vidyo client',
+    'go_to_vidyoportal': 'Go to Vidyo Portal'
+  },
   'cern_toolbar': {
     'logged_in_as': 'Logged in as:',
     'directory': 'Directory',

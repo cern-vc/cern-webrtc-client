@@ -1,4 +1,3 @@
-
 <div class="ui two column centered grid">
     <div class="column">
 
@@ -6,7 +5,16 @@
             &copy; 2015-{{currentYear}} CERN (European Organization for Nuclear Research)
         </p>
         <p class="center">
-          {{#link-to "terms-of-use"}}Terms of Use{{/link-to}} - {{#link-to "downloads"}}Downloads{{/link-to}} - {{#link-to "help"}}Help{{/link-to}}
+          {{#link-to "terms-of-use"}}Terms of Use{{/link-to}} - {{#link-to "downloads"}}Downloads{{/link-to}}
+            - {{#link-to "help"}}Help{{/link-to}} -
+
+            <select {{action 'setLocale' on='change'}}>
+              {{#each locales as |loc|}}
+                  <option value="{{loc.id}}" selected={{is-equal loc.id i18n.locale}}>
+                    {{loc.text}}
+                  </option>
+              {{/each}}
+            </select>
         </p>
         <p class="center">
             <small>v.{{appVersion}}</small>
