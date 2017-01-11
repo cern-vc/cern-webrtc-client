@@ -83,7 +83,9 @@ export default {
     'button': {
       'join_meeting': 'Unirse al meeting',
       'set_test_room': 'Establece sala de prueba',
-      'set_random_name': 'Establece nombre aleatorio'
+      'set_test_room_button': 'Vidyo Café',
+      'set_random_name': 'Establece nombre aleatorio',
+      'set_random_name_button': 'Aleatorio'
     }
   },
 

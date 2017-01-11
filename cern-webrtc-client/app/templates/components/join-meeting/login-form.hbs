@@ -19,12 +19,12 @@
                class="active full-width">{{t "join-meeting.field.room_url"}} *</label>
         <div class="ui fluid action input">
             <div class="ui left icon input">
-              {{input type="text" class=roomURLInputClass value=roomUrl name="roomUrl" id="roomUrl" placeholder="https://vidyoportal.cern.ch/flex.html?roomdirect.html&key=XXXXXXXXXXXXXXXXXXXXXXXXXXX"}}
+              {{input type="text" class=roomURLInputClass value=roomUrl name="roomUrl" id="roomUrl" placeholder="https://vidyoportal.cern.ch/join/XXXXXXXXXX"}}
                 <i class="call icon"></i>
             </div>
-            <button type="button"
+            <button type="button" title="{{t "join-meeting.button.set_test_room"}}"
                     class="ui button indico-blue" {{action "setVidyoCafeRoomUrl"}}>
-              {{t "join-meeting.button.set_test_room"}}
+                <i class="coffee icon"></i> {{t "join-meeting.button.set_test_room_button"}}
             </button>
         </div>
 
@@ -52,9 +52,10 @@
                 <i class="user icon"></i>
             </div>
           {{#if isDevelopmentEnvironment}}
-              <button type="button"
-                      class="ui button indico-blue" {{action "setRandomGuestName"}}>
-                {{t "join-meeting.button.set_random_name"}}
+              <button type="button" title="{{t "join-meeting.button.set_random_name"}}"
+                      class="ui button" {{action "setRandomGuestName"}}>
+                  <i class="help icon"></i>
+                {{t "join-meeting.button.set_random_name_button"}}
               </button>
           {{/if}}
         </div>
@@ -62,8 +63,9 @@
 
     <div class="field">
         <button
-                class="ui primary {{if guestName (if roomUrl "" "disabled") "disabled"}} button indico-blue"
+                class="ui primary {{if guestName (if roomUrl "" "disabled") "disabled"}} labeled icon button"
                 id="connect-meeting-guest">
+            <i class="arrow right icon"></i>
           {{t "join-meeting.button.join_meeting" }}
         </button>
     </div>
