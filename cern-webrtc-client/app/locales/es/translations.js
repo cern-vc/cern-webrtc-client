@@ -2,11 +2,14 @@
  * Created by renefernandez on 19/02/16.
  */
 export default {
-  'language-select': {
-    'language': {
-      'en': 'English',
-      'es': 'Español'
-    }
+  'botton-disclaimer': {
+    'terms_of_use': 'Términos de uso',
+    'downloads': 'Descargas',
+    'help': 'Ayuda'
+  },
+  'button-share': {
+    'sharing': 'Compartir',
+    'no_shares': 'No hay pantallas compartidas'
   },
   'cern-toolbar': {
     'logged_in_as': 'Registrado como: ',
@@ -14,8 +17,12 @@ export default {
     'login': 'Acceder',
     'logout': 'Salir'
   },
-  'chat_box': {
+  'chat-box': {
     'active_chats': 'Chats activos',
+    'no_private_chats': 'No hay chats privados',
+    'offline_user': 'Este usuario está offline',
+    'private_chats': 'Chats privados',
+    'main_chat': 'Chat principal',
     'field': {
       'chat_message_placeholder': 'Escribe tu mensaje aquí...',
     },
@@ -24,10 +31,13 @@ export default {
     }
   },
   'configuration-box': {
+    'configuration_title': 'Configuración',
     'select_devices_message': 'Elige los dispositivos que quieres utilizar en el meeting.',
     'device_configuration': 'Configuración de dispositivos',
-    'notifications_disabled_message': 'Desktop notifications are disabled. You can manage this setting on your browser preferences',
-    'notifications_enabled_message': 'Desktop notifications are enabled. You can manage this setting on your browser preferences',
+    'notifications_disabled_message': 'Las notificaciones de escritorio están desactivadas. Puedes gestionarlas en las preferencias de tu navegador.',
+    'notifications_enabled_message': 'Las notificaciones de escritorio están activadas. Puedes gestionarlas en las preferencias de tu navegador.',
+    'on': 'en',
+    'or': 'o',
     'field': {
       'webcam': 'Webcam',
       'microphone': 'Micrófono',
@@ -37,20 +47,33 @@ export default {
       'save': 'Guardar'
     }
   },
+  'downloads': {
+    'downloads_title': 'Descargas',
+    'chrome_title': 'Extensión de compartir pantalla para Chrome',
+    'page_description': 'Si quieres compartir tu pantalla con otros usuarios debes utilizar Chrome o Firefox e instalar su extensión correspondienteÑ',
+    'after_install_instructions': 'Una vez instalada, debes recargar la página para que la aplicación detecte la extensión.',
+    'other_clients_title': 'Otros clientes Vidyo',
+    'other_clients_description': 'Si tu navegador o plataforma no están soportados, puedes descargar el cliente nativo de Vidyo para tu sistema operativo utilizando los siguientes enlaces.',
+    'desktop_title': 'Desktop',
+    'desktop_description': 'Descargar la aplicación de escritorio desde el <a href="https://vidyoportal.cern.ch/" title="CERN Vidyo Portal">CERN Vidyo Portal</a>'
+  },
+  'feedback-box': {
+    'send_us_feedback': 'Envíanos tu feedback',
+    'send_us_feedback_message': 'Este es el log de la aplicación. Por favor, descárgalo y adjúntalo a tu ticket' +
+    ' si estás experimentando algún problema.',
+    'button': {
+      'download': 'Descargar log',
+      'clear_log': 'Borrar log'
+    }
+  },
   'index': {
     'error': 'Error',
     'button': {
       'close': 'Cerrar',
     }
   },
-  'index_main': {
-    'configuration': 'Configuración',
-    'join': 'Unirse',
-  },
-  'loading_box': {
-    'joining_meeting': 'Unirse al meeting...'
-  },
   'join-meeting': {
+    'join_meeting': 'Unirse a un meeting',
     'field': {
       'room_url': 'URL del meeting',
       'room_pin': 'Pin del meeting (si tiene)',
@@ -59,7 +82,41 @@ export default {
     },
     'button': {
       'join_meeting': 'Unirse al meeting',
+      'set_test_room': 'Establece sala de prueba',
+      'set_random_name': 'Establece nombre aleatorio'
     }
+  },
+
+  'language-select': {
+    'language': {
+      'en': 'English',
+      'es': 'Español'
+    }
+  },
+  'loading-box': {
+    'send_us_feedback': 'Envíanos tu feedback',
+    'error': 'ERROR',
+    'ok': 'OK',
+    'webrtc_supported': 'WebRTC soportado',
+    'microphone_detected': 'Micrófono detectado en el sistema',
+    'allow_microphone_access': '. Por favor, permite acceso al micrófono para continuar.',
+    'try_again': 'intentar otra vez',
+    'browser_supported': 'Navegador soportado',
+    'session_manager_available': 'Gestor de sesiones disponible',
+    'everything_ok': 'Todo parece correcto. Cargando el plugin Vidyo...',
+    'some_errors': 'Han ocurrido algunos errores durante la carga de la página. El Cliente WebRTC no puede continuar. Por favor, selecciona una de las opciones de abajo como alternativa.',
+    'use_another_vidyo_client': 'Utilizar otro cliente Vidyo',
+    'go_to_vidyoportal': 'Ir al Vidyo Portal'
+  },
+  'login': {
+    'login_title': 'Iniciar sesión',
+    'loading': 'Cargando',
+    'cancel': 'Cancelar',
+    'login_message': 'Inicia sesión en el CERN WebRTC Client utilizando tu cuenta del CERN.',
+    'button': {
+      'login': 'iniciar sesión en el CERN'
+    }
+
   },
   'meeting-box': {
     'unmute_video': 'Activar webcam',
@@ -92,7 +149,7 @@ export default {
       'chrome_extension_step4': 'Once the extension is loaded, refresh the CERN Vidyo WebRTC Client page.',
       'only_chrome_supported': 'Screen Sharing is supported only in Chrome and Firefox.'
     },
-    'help_modal': {
+    'help-modal': {
       'disconnect': 'Desconectarse del meeting',
       'active_speaker': 'Selecciona el ponente activo o por defecto',
       'toggle_view': 'Activa o desactiva la vista propia',
@@ -111,16 +168,17 @@ export default {
       'send': 'Enviar'
     }
   },
+  'meeting-loading-box': {
+    'loading': 'Cargando...'
+  },
   'participant_list': {
     'participants': 'Participantes',
     'participant': 'Participante'
   },
-  'feedback-box': {
-    'button': {
-      'download': 'Descargar log',
-      'clear_log': 'Borrar log'
-    },
-    'send_us_feedback_message': 'Este es el log de la aplicación. Por favor, descárgalo y adjúntalo a tu ticket' +
-    ' si estás experimentando algún problema.'
+  'top-navbar': {
+    'login': 'Iniciar sesión',
+    'logout': 'Cerrar sesión',
+    'logged_in_as': 'Sesión iniciada como: '
   }
+
 };

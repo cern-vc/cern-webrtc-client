@@ -9,13 +9,13 @@
           {{#if hasUnreadMessages}}
               <div class="floating ui red label"><i class="mail icon"></i></div>
           {{/if}}
-            <span class="text" id="chatTextName">Main chat</span>
+            <span class="text" id="chatTextName">{{t 'chat-box.main_chat'}}</span>
             <div class="left menu">
                 <div class="item {{if (is-equal meeting.mainChat.id activeChat.id) 'active' ''}}" {{action 'setChatAsActiveChat' meeting.mainChat}}>
-                    Main chat
+                  {{t 'chat-box.main_chat'}}
                 </div>
                 <div class="header">
-                    Private chats
+                    {{t 'chat-box.private_chats'}}
                 </div>
               {{#if meeting.privateChats}}
                 {{#each meeting.privateChats as |chat|}}
@@ -36,7 +36,7 @@
                   {{/if}}
                 {{/each}}
               {{else}}
-                  <div class="disabled item">There are no private chats</div>
+                  <div class="disabled item">{{t 'chat-box.no_private_chats'}}</div>
               {{/if}}
             </div>
         </div>
@@ -66,13 +66,13 @@
         <div class="ui form">
             <div class="field">
                 <div class="ui fluid action input">
-                  {{input type="text" value=messageText enter="chatSendMessage" id="chatMessageText" placeholder=(t 'chat_box.field.chat_message_placeholder')}}
+                  {{input type="text" value=messageText enter="chatSendMessage" id="chatMessageText" placeholder=(t 'chat-box.field.chat_message_placeholder')}}
                     <button class="ui primary button indico-blue"
                       {{bind-attr disabled=activeChat.isDisabled}}
                       {{action "chatSendMessage"}}><i class="material-icons right">send</i>
                     </button>
                   {{#if activeChat.isDisabled}}
-                      <p class="red-text darken-3">This user is offline</p>
+                      <p class="red-text darken-3">{{t 'chat-box.offline_user'}}</p>
                   {{/if}}
                 </div>
             </div>

@@ -3,7 +3,7 @@
         screen_share
     </i>
     <div class="inverted menu">
-        <div class="header">Sharing</div>
+        <div class="header">{{t 'button-share.sharing'}}</div>
         <div class="item" {{action 'shareOrStopScreenSharing'}}>{{if isLocalSharing (t "meeting-box.stop_sharing") (t "meeting-box.start_sharing")}}</div>
         <div class="ui divider"></div>
         <div class="header">{{t "meeting-box.available_shares"}}</div>
@@ -14,7 +14,7 @@
             </div>
         {{/each}}
       {{else}}
-          <div class="disabled item">No shares available</div>
+          <div class="disabled item">{{t 'button-share.no_shares'}}</div>
       {{/if}}
     </div>
 </div>

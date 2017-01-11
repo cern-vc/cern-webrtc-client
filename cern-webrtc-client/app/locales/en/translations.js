@@ -7,14 +7,22 @@ export default {
     'downloads': 'Downloads',
     'help': 'Help'
   },
+  'button-share':{
+    'sharing': 'Sharing',
+    'no_shares': 'No shares available'
+  },
   'cern-toolbar': {
     'logged_in_as': 'Logged in as:',
     'directory': 'Directory',
     'login': 'Login',
     'logout': 'Logout'
   },
-  'chat_box': {
+  'chat-box': {
     'active_chats': 'Active chats',
+    'no_private_chats': 'There are no private chats',
+    'private_chats': 'Private chats',
+    'main_chat': 'Main chat',
+    'offline_user': 'This user is offline',
     'field': {
       'chat_message_placeholder': 'Type your message here...',
     },
@@ -28,6 +36,8 @@ export default {
     'device_configuration': 'Device configuration',
     'notifications_disabled_message': 'Desktop notifications are disabled. You can manage this setting on your browser preferences',
     'notifications_enabled_message': 'Desktop notifications are enabled. You can manage this setting on your browser preferences',
+    'on': 'on',
+    'or': 'or',
     'field': {
       'webcam': 'Webcam',
       'microphone': 'Microphone',
@@ -62,10 +72,6 @@ export default {
       'close': 'Close',
     }
   },
-  'index_main': {
-    'configuration': 'Configuration',
-    'join': 'Join',
-  },
   'join-meeting': {
     'join_meeting': 'Join a meeting',
     'field': {
@@ -79,9 +85,6 @@ export default {
       'set_test_room': 'Set test room',
       'set_random_name': 'Set random name'
     }
-  },
-  'loading_box': {
-    'joining_meeting': 'Joining the meeting...'
   },
   'language-select': {
     'language': {
@@ -163,6 +166,9 @@ export default {
     'button': {
       'send': 'Send'
     }
+  },
+  'meeting-loading-box': {
+    'loading': 'Loading...'
   },
   'participant_list': {
     'participants': 'Participants',
