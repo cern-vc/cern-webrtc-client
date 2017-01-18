@@ -32,7 +32,7 @@ export default {
   },
   'configuration-box': {
     'configuration_title': 'Configuration',
-    'select_devices_message': 'Select the devices you want to use on the meeting.',
+    'select_devices_message': 'Select the devices you want to use on the room.',
     'device_configuration': 'Device configuration',
     'notifications_disabled_message': 'Desktop notifications are disabled. You can manage this setting on your browser preferences',
     'notifications_enabled_message': 'Desktop notifications are enabled. You can manage this setting on your browser preferences',
@@ -73,7 +73,7 @@ export default {
     }
   },
   'join-meeting': {
-    'join_meeting': 'Join a meeting',
+    'join_meeting': 'Join a videoconference room',
     'field': {
       'room_url': 'Room URL',
       'room_pin': 'Room Pin (if any)',
@@ -81,7 +81,7 @@ export default {
       'your_name': 'Your name'
     },
     'button': {
-      'join_meeting': 'Join the meeting',
+      'join_meeting': 'Join the room',
       'set_test_room': 'Set test room',
       'set_test_room_button': 'Vidyo Café',
       'set_random_name': 'Set random name',
@@ -128,7 +128,7 @@ export default {
     'unmute_speakers': 'Unmute speakers',
     'speaker_no_muted': 'Not muted',
     'speaker_muted': 'Muted',
-    'quit_meeting': 'Quit meeting',
+    'quit_meeting': 'Quit room',
     'change_pip_mode': 'Show/hide participants streams',
     'disable_active_speaker': 'Disable active speaker',
     'enable_active_speaker': 'Enable active speaker',
@@ -151,7 +151,7 @@ export default {
       'only_chrome_supported': 'Screen Sharing is supported only in Chrome and Firefox.'
     },
     'help_modal': {
-      'disconnect': 'Disconnect from meeting',
+      'disconnect': 'Disconnect from room',
       'active_speaker': 'Select Active/Default speaker',
       'toggle_view': 'Toggle Enable/Disable self view',
       'enable_speaker': 'Enabling/Disabling speaker',

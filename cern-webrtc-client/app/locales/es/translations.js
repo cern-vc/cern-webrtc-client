@@ -32,7 +32,7 @@ export default {
   },
   'configuration-box': {
     'configuration_title': 'Configuración',
-    'select_devices_message': 'Elige los dispositivos que quieres utilizar en el meeting.',
+    'select_devices_message': 'Elige los dispositivos que quieres utilizar en la sala.',
     'device_configuration': 'Configuración de dispositivos',
     'notifications_disabled_message': 'Las notificaciones de escritorio están desactivadas. Puedes gestionarlas en las preferencias de tu navegador.',
     'notifications_enabled_message': 'Las notificaciones de escritorio están activadas. Puedes gestionarlas en las preferencias de tu navegador.',
@@ -73,15 +73,15 @@ export default {
     }
   },
   'join-meeting': {
-    'join_meeting': 'Unirse a un meeting',
+    'join_meeting': 'Entrar en una sala de videoconferencia',
     'field': {
-      'room_url': 'URL del meeting',
-      'room_pin': 'Pin del meeting (si tiene)',
+      'room_url': 'URL de la sala',
+      'room_pin': 'Pin de la sala (si tiene)',
       'guest_name': 'Nombre de invitado',
       'your_name': 'Tu nombre'
     },
     'button': {
-      'join_meeting': 'Unirse al meeting',
+      'join_meeting': 'Entrar a la sala',
       'set_test_room': 'Establece sala de prueba',
       'set_test_room_button': 'Vidyo Café',
       'set_random_name': 'Establece nombre aleatorio',
@@ -129,7 +129,7 @@ export default {
     'unmute_speakers': 'Activar altavoces',
     'speaker_no_muted': 'No silenciado',
     'speaker_muted': 'Silenciado',
-    'quit_meeting': 'Salir del meeting',
+    'quit_meeting': 'Salir de la sala',
     'change_pip_mode': 'Mostrar/Ocultar vídeo de participantes',
     'disable_active_speaker': 'Desactivar ponente activo',
     'enable_active_speaker': 'Activar ponente activo',
@@ -152,7 +152,7 @@ export default {
       'only_chrome_supported': 'Screen Sharing is supported only in Chrome and Firefox.'
     },
     'help-modal': {
-      'disconnect': 'Desconectarse del meeting',
+      'disconnect': 'Desconectarse de la sala',
       'active_speaker': 'Selecciona el ponente activo o por defecto',
       'toggle_view': 'Activa o desactiva la vista propia',
       'enable_speaker': 'Activa o desactiva los altavoces',
