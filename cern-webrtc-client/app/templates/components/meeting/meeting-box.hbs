@@ -38,7 +38,7 @@
                 <div class="ui one column left aligned grid">
                     <div class="column">
                         <h4 class="header">
-                            Speakers: {{if isMutedSpeaker (t "meeting-box.speaker_muted") (t "meeting-box.speaker_no_muted")}}</h4>
+                            {{t "meeting-box.speaker_header"}} {{if isMutedSpeaker (t "meeting-box.speaker_muted") (t "meeting-box.speaker_no_muted")}}</h4>
                         <p>
                             <input type="hidden" name="speaker-value" id="speaker-value" value="{{speakerVolume}}"/>
                         <div class="ui range" id="speaker-range"></div>

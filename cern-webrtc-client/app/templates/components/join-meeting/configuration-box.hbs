@@ -41,7 +41,11 @@
                         <p>
                             <button  {{action "changeNotificationsSettings"}}
                                     class="ui primary button indico-blue {{if (is-equal notificationsStatus "denied") 'disabled' '' }}">
-                              {{if (is-equal notificationsStatus "denied") 'Enable Notifications' 'Test Notification' }}
+                              {{#if (is-equal notificationsStatus "denied")}}
+                                {{t 'configuration-box.enable_notifications'}}
+                              {{else}}
+                                {{t 'configuration-box.test_notifications' }}
+                              {{/if}}
                             </button>
                         </p>
 
@@ -51,17 +55,19 @@
                       {{#if (is-equal notificationsStatus "granted")}}
                         {{t "configuration-box.notifications_enabled_message"}}
                       {{/if}}
-                        ({{t "configuration-box.on"}} <a target="_blank" href="https://support.google.com/chrome/answer/3220216"
-                               title="Notifications configuration in Chrome">Chrome</a>
-                      {{t "configuration-box.or"}} <a target="_blank" href="https://support.mozilla.org/en-US/questions/997362"
-                              title="Notifications configuration in Firefox">Firefox</a>)
+                        ({{t "configuration-box.on"}} <a target="_blank"
+                                                         href="https://support.google.com/chrome/answer/3220216"
+                                                         title="Notifications configuration in Chrome">Chrome</a>
+                      {{t "configuration-box.or"}} <a target="_blank"
+                                                      href="https://support.mozilla.org/en-US/questions/997362"
+                                                      title="Notifications configuration in Firefox">Firefox</a>)
                     </div>
 
 
                 </form>
             </div>
             <div class="column">
-                <video id="player" style="max-width: 100%; height: auto;" ></video>
+                <video id="player" style="max-width: 100%; height: auto;"></video>
             </div>
         </div>
 

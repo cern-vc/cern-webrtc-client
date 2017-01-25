@@ -92,6 +92,7 @@ export default {
   'language-select': {
     'language': {
       'en': 'English',
+      'fr': 'Français',
       'es': 'Español'
     }
   },
@@ -139,6 +140,9 @@ export default {
     'connected_to': 'Conectado a:',
     'help': 'Ayuda',
     'send_us_feedback': 'Envíanos feedback',
+    'active_speaker_disabled': 'Ponente activo desactivado',
+    'active_speaker_enabled': 'El ponente cambiará automáticamente.',
+    'speaker_header': 'Altavoces:',
     'share_modal': {
       'title': 'Compartir pantalla',
       'chrome_info': 'To enable screen sharing you must install CERN Vidyo Extension.',

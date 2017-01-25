@@ -23,7 +23,7 @@
                 <i class="call icon"></i>
             </div>
             <button type="button" title="{{t "join-meeting.button.set_test_room"}}"
-                    class="ui button indico-blue" {{action "setVidyoCafeRoomUrl"}}>
+                    class="ui labeled icon button" {{action "setVidyoCafeRoomUrl"}}>
                 <i class="coffee icon"></i> {{t "join-meeting.button.set_test_room_button"}}
             </button>
         </div>
@@ -53,7 +53,7 @@
             </div>
           {{#if isDevelopmentEnvironment}}
               <button type="button" title="{{t "join-meeting.button.set_random_name"}}"
-                      class="ui button" {{action "setRandomGuestName"}}>
+                      class="ui labeled icon button" {{action "setRandomGuestName"}}>
                   <i class="help icon"></i>
                 {{t "join-meeting.button.set_random_name_button"}}
               </button>

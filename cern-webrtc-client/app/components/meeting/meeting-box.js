@@ -1,8 +1,10 @@
 import Ember from 'ember';
 import TrackedComponent from '../tracked-component';
 import config from '../../config/environment';
+import { translationMacro as t } from "ember-i18n";
 
 export default TrackedComponent.extend({
+  i18n: Ember.inject.service(),
   isConnected: Ember.computed.alias('connection-manager.isConnected'),
   isDisconnectedFromServer: Ember.computed.alias('connection-manager.disconnectedFromServer'),
   logEnabled: Ember.computed.alias('logger.logEnabled'),
@@ -12,6 +14,8 @@ export default TrackedComponent.extend({
   isParticipantsListVisible: true,
   isToolboxVisible: true,
   feedbackUrl: config.feedback_url,
+  activeSpeakerDisabledMessage: t('meeting-box.active_speaker_disabled'),
+  activeSpeakerEnabledMessage: t('meeting-box.active_speaker_enabled'),
   /**
    * Services attrs
    */
@@ -119,12 +123,12 @@ export default TrackedComponent.extend({
     this.get('meeting-manager').setNumPreferredParticipantsToggle();
     this.get('vidyo-requests-api').clientLayoutSet(this.get('numPreferredParticipants'));
     if (this.get('numPreferredParticipants') === 1) {
-      Ember.$('.status-changed.nag').text('Active speaker will be selected automatically');
+      Ember.$('.status-changed.nag').text(self.get('activeSpeakerEnabledMessage'));
 
       self.switchVideoStreams(null);
 
     } else {
-      Ember.$('.status-changed.nag').text('Active speaker disabled');
+      Ember.$('.status-changed.nag').text(self.get('activeSpeakerDisabledMessage'));
     }
     Ember.$('.status-changed.nag').nag('show');
     Ember.run.later(function () {

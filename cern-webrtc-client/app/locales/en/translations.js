@@ -38,6 +38,8 @@ export default {
     'notifications_enabled_message': 'Desktop notifications are enabled. You can manage this setting on your browser preferences',
     'on': 'on',
     'or': 'or',
+    'test_notifications': 'Test Notification',
+    'enable_notifications': 'Enable Notifications',
     'field': {
       'webcam': 'Webcam',
       'microphone': 'Microphone',
@@ -91,6 +93,7 @@ export default {
   'language-select': {
     'language': {
       'en': 'English',
+      'fr': 'Français',
       'es': 'Español'
     }
   },
@@ -138,6 +141,9 @@ export default {
     'connected_to': 'Connected to:',
     'help': 'Help',
     'send_us_feedback': 'Send us your feedback',
+    'active_speaker_disabled': 'Active speaker disabled',
+    'active_speaker_enabled': 'Active speaker will be selected automatically',
+    'speaker_header': 'Speakers:',
     'share_modal': {
       'title': 'Screen sharing',
       'chrome_info': 'To enable screen sharing you must install CERN Vidyo Extension.',
