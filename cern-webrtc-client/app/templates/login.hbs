@@ -8,13 +8,13 @@
       {{else}}
 
           <div class="ui active inverted dimmer">
-              <div class="ui text loader">Loading</div>
+              <div class="ui text loader">{{t 'login.loading'}}</div>
           </div>
           <p></p>
       {{/unless}}
     </div>
     <div class="actions">
-        <div class="ui cancel button" {{action "closeLoginModal"}}>Cancel
+        <div class="ui cancel button" {{action "closeLoginModal"}}>{{t 'login.cancel'}}
         </div>
     </div>
 </div>
@@ -23,9 +23,9 @@
     <div id="login-form-container" class="ui stackable two column centered grid">
         <div class="column">
             <div class="ui center aligned segment">
-                <h1 class="ui header">Login</h1>
-                <p>Login into CERN WebRTC client using your CERN account.</p>
-                <button class="ui blue button" {{action "openLoginModal"}}>Login into CERN</button>
+                <h1 class="ui header">{{t 'login.login_title'}}</h1>
+                <p>{{t 'login.login_message'}}</p>
+                <button class="ui blue button" {{action "openLoginModal"}}><i class="sign in icon"></i> {{t 'login.button.login'}}</button>
             </div>
         </div>
     </div>

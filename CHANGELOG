@@ -3,9 +3,20 @@ All notable changes to this project will be documented in this file.
 This project adheres to [CERN Vidyo WebRTC Client](https://vidyowebrtc.web.cern.ch/).
 
 ## [unreleased]
-### Add
+### Added
 - Volume control to microphone.
 - Close private chat button
+
+## 0.14.0 - 2017-01-23
+### Added
+- French translation.
+- Spanish translation.
+- Icons to the action buttons on the login and joining screens.
+- Debug icon on the joining screen.
+
+## 0.13.1 - 2016-12-07
+### Fixed
+- Add compatibility with old room urls to join form.
 
 ## 0.13.0 - 2016-12-07
 ### Improved
@@ -14,10 +25,10 @@ This project adheres to [CERN Vidyo WebRTC Client](https://vidyowebrtc.web.cern.
 
 ## 0.12.1 - 2016-09-20
 ### Fixed
-- Microphone permissions on Firefox working again on the loadging screen.
+- Microphone permissions on Firefox working again on the loading screen.
 
 ## 0.12 - 2016-09-20
-### Add
+### Added
 - Add detach screen share feature
 
 ## 0.11.2.2 - 2016-09-05

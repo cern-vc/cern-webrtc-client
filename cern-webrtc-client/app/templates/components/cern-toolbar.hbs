@@ -5,17 +5,16 @@
     <ul>
       {{#if session.isAuthenticated}}
           <li>
-              <a {{action "doNothing"}}>{{t "cern_toolbar.logged_in_as"}} {{session.data.authenticated.user_info.username}}</a>
+              <a {{action "doNothing"}}>{{t "cern-toolbar.logged_in_as"}} {{session.data.authenticated.user_info.username}}</a>
           </li>
-          <li><a href="!#" {{action 'invalidateSession'}}>{{t "cern_toolbar.logout"}}</a></li>
+          <li><a href="!#" {{action 'invalidateSession'}}>{{t "cern-toolbar.logout"}}</a></li>
       {{else}}
           <li>
-              {{!--<a href="!#" {{action "openLoginModal"}}>Login</a>--}}
-              {{#link-to "login"}}Login{{/link-to}}
+              {{#link-to "login"}}{{t 'cern-toolbar.login'}}{{/link-to}}
           </li>
       {{/if}}
         <li><a class="cern-directory" href="http://cern.ch/directory"
-               title="Search CERN resources and browse the directory">{{t "cern_toolbar.directory"}}</a></li>
+               title="Search CERN resources and browse the directory">{{t "cern-toolbar.directory"}}</a></li>
     </ul>
 
 </div><!-- /#cern-toolbar -->
@@ -29,13 +28,12 @@
       {{else}}
 
           <div class="ui active inverted dimmer">
-              <div class="ui text loader">Loading</div>
+              <div class="ui text loader">{{t 'cern-toolbar.loading'}}</div>
           </div>
           <p></p>
       {{/unless}}
     </div>
     <div class="actions">
-        <div class="ui cancel button" {{action "closeLoginModal"}}>Cancel
-        </div>
+        <div class="ui cancel button" {{action "closeLoginModal"}}>{{t 'cern-toolbar.cancel'}}</div>
     </div>
 </div>

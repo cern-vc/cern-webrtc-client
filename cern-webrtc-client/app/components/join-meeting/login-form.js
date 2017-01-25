@@ -46,6 +46,11 @@ export default TrackedComponent.extend({
    */
   didInsertElement(){
     var self = this;
+
+    Ember.$.fn.form.settings.rules.validateKey = function(param) {
+      return (param.toLowerCase().indexOf("key=") >= 0 || param.toLowerCase().indexOf("/join/") >= 0);
+    };
+
     Ember.$('#login-form').form({
       on: 'change',
       inline: true,
@@ -54,17 +59,22 @@ export default TrackedComponent.extend({
           identifier: 'roomUrl',
           rules: [
             {
+              type   : 'validateKey[param]',
+              prompt : 'Room key not found on the room URL'
+            },
+            {
               type: 'empty',
               prompt: 'Please enter a Vidyoportal URL'
             },
             {
               type: 'url'
             },
+            // {
+            //   type: 'contains[/join/]'
+            // },
             {
-              type: 'contains[/join/]'
-            },
-            {
-              type: 'contains['+self.get('baseVidyoPortalUrl')+']'
+              type: 'contains['+self.get('baseVidyoPortalUrl')+']',
+              prompt: 'Please enter a valid Vidyoportal URL'
             }
           ]
         },
@@ -84,6 +94,7 @@ export default TrackedComponent.extend({
         onSuccess: self.validationPassed()
       }
     });
+
   },
   validationPassed(){
   },
@@ -105,6 +116,10 @@ export default TrackedComponent.extend({
 
   isRoomKeyFromInputMissing() {
     let roomKey = this.get('roomUrl').substr(this.get('roomUrl').lastIndexOf('/') + 1);
+    if(roomKey.length === 0){
+      roomKey = this.getParameterByName('key', this.get('roomUrl'));
+    }
+
     return roomKey.length === 0;
   },
 
@@ -136,7 +151,17 @@ export default TrackedComponent.extend({
    */
   getRoomKey() {
     if (!this.isRoomKeyFromInputMissing()) {
-      return this.get('roomUrl').substr(this.get('roomUrl').lastIndexOf('/') + 1);
+
+
+      let roomKey = this.getParameterByName('key', this.get('roomUrl'));
+
+
+      if(roomKey.length === 0){
+        roomKey = this.get('roomUrl').substr(this.get('roomUrl').lastIndexOf('/') + 1);
+      }
+
+      return roomKey;
+
     } else if (!this.isRoomKeyFromURLMissing()) {
       return this.get('key');
     }

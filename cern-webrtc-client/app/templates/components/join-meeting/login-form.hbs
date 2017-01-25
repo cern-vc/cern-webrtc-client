@@ -11,20 +11,20 @@
     </button>
 {{/if}}
 
-<h2 class="ui header">Join a meeting</h2>
+<h2 class="ui header">{{t 'join-meeting.join_meeting'}}</h2>
 
 <form class="ui form" {{action "connectAsGuest" on="submit"}} id="login-form">
     <div class="field">
         <label for="roomUrl" data-error="{{roomURLInputInvalidFeedback}}"
-               class="active full-width">{{t "login_form.field.room_url"}} *</label>
+               class="active full-width">{{t "join-meeting.field.room_url"}} *</label>
         <div class="ui fluid action input">
             <div class="ui left icon input">
-              {{input type="text" class=roomURLInputClass value=roomUrl name="roomUrl" id="roomUrl" placeholder="https://vidyoportal.cern.ch/flex.html?roomdirect.html&key=XXXXXXXXXXXXXXXXXXXXXXXXXXX"}}
+              {{input type="text" class=roomURLInputClass value=roomUrl name="roomUrl" id="roomUrl" placeholder="https://vidyoportal.cern.ch/join/XXXXXXXXXX"}}
                 <i class="call icon"></i>
             </div>
-            <button type="button"
-                    class="ui button indico-blue" {{action "setVidyoCafeRoomUrl"}}>
-                Set Test Room
+            <button type="button" title="{{t "join-meeting.button.set_test_room"}}"
+                    class="ui labeled icon button" {{action "setVidyoCafeRoomUrl"}}>
+                <i class="coffee icon"></i> {{t "join-meeting.button.set_test_room_button"}}
             </button>
         </div>
 
@@ -32,7 +32,7 @@
 
     <div class="ten wide field">
         <label for="roomPin" data-error="{{roomPinInputInvalidFeedback}}"
-               class="active">{{t "login_form.field.room_pin"}}</label>
+               class="active">{{t "join-meeting.field.room_pin"}}</label>
         <div class="ui left icon input">
           {{input type="password" disabled=(not serverAvailable) value=roomPin id="roomPin" class=roomPinInputClass placeholder=""}}
             <i class="lock icon"></i>
@@ -42,9 +42,9 @@
         <label for="guestName" data-error="{{guestNameInputInvalidFeedback}}"
                class="active full-width">
           {{#if session.isAuthenticated}}
-            {{t "login_form.field.your_name"}}
+            {{t "join-meeting.field.your_name"}}
           {{else}}
-            {{t "login_form.field.guest_name"}}
+            {{t "join-meeting.field.guest_name"}}
           {{/if}} *</label>
         <div class="ui fluid action input">
             <div class="ui left icon input">
@@ -52,9 +52,10 @@
                 <i class="user icon"></i>
             </div>
           {{#if isDevelopmentEnvironment}}
-              <button type="button"
-                      class="ui button indico-blue" {{action "setRandomGuestName"}}>
-                  Set random name
+              <button type="button" title="{{t "join-meeting.button.set_random_name"}}"
+                      class="ui labeled icon button" {{action "setRandomGuestName"}}>
+                  <i class="help icon"></i>
+                {{t "join-meeting.button.set_random_name_button"}}
               </button>
           {{/if}}
         </div>
@@ -62,9 +63,10 @@
 
     <div class="field">
         <button
-                class="ui primary {{if guestName (if roomUrl "" "disabled") "disabled"}} button indico-blue"
+                class="ui primary {{if guestName (if roomUrl "" "disabled") "disabled"}} labeled icon button"
                 id="connect-meeting-guest">
-          {{t "login_form.button.join_meeting" }}
+            <i class="arrow right icon"></i>
+          {{t "join-meeting.button.join_meeting" }}
         </button>
     </div>
 
